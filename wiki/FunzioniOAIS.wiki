@@ -22,5 +22,5 @@ Prevede 3 fasi:
   # L’*invio dell’esito* della fase di acquisizione, da parte del _"Responsabile della conservazione"_, a colui che ha effettuato il versamento. 
 La *fase di accesso* consente a, chiunque ne abbia diritto, di ottenere una copia della documentazione digitale conservata e consta dei seguenti passi:
   # Si effettua una _"Richiesta di esibizione"_ contenente l’elenco dei documenti che si vuole fornire al richiedente;
-Il _“Responsabile della conservazione”_ crea un _"Pacchetto di distribuzione"_ con all'interno una copia dei documenti richiesti e lo firma per garantirne l’autenticità;
-Il richiedente può scaricare il pacchetto.
+  # Il _“Responsabile della conservazione”_ crea un _"Pacchetto di distribuzione"_ con all'interno una copia dei documenti richiesti e lo firma per garantirne l’autenticità;
+  # Il richiedente può scaricare il pacchetto.
