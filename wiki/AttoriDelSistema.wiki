@@ -1,0 +1,9 @@
+#summary Descrizione degli attori in un sistema OAIS.
+#labels Produttore,Responsabiledellaconservazione
+
+= Attori =
+
+Gli attori di un sistema OAIS possono essere suddivisi nelle seguenti categorie:
+  * *Utente*: è il ruolo svolto da persone o sistemi client che interagiscono con i servizi messi a disposizione da un ente, pubblico o privato, di conservazione al fine di trovare ed avere accesso alle informazioni di interesse;
+  * *Produttore*: si tratta della persona o del sistema client che fornisce gli oggetti della conservazione. È una specializzazione dell’ Utente:
+  * *Responsabile della conservazione*: rappresenta l’utente con compiti riguardanti la gestione della conservazione. È una specializzazione dell’ Utente.
