@@ -1,5 +1,5 @@
 #summary Breve descrizione delle funzioni principali di un sistema OAIS.
-#labels OAIS,SIP
+#labels OAIS,SIP,AIP,DIP
 
 = Introduction =
 
