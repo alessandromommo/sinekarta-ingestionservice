@@ -1,0 +1,16 @@
+#summary Breve descrizione della procedura di versamento
+#labels Pacchettodiversamento
+
+= Procedura di versamento =
+
+Il sistema di conservazione riceve dal _“Produttore”_ (vedi AttoriDelSistema) le richieste di archiviazione dei documenti sotto forma di *Pacchetti di versamento*.
+
+Ogni pacchetto ricevuto assume lo stato di "versato"; per ogni oggetto (fascicolo, documento) contenuto in ognuno di questi pacchetti, si eseguono i controlli previsti dal sistema: controlli sul formato del file, sulla completezza dei metadati, sulla validità di firme e marche temporali, sulla presenza di codice eseguibile.
+
+Nel caso in cui tutti i controlli abbiano un esito positivo il sistema accetta in maniera automatica il pacchetto di versamento, il quale transisce nello stato "valido". Da questo momento la documentazione diventa disponibile per essere inserita in un pacchetto di archiviazione.
+
+Nel caso in cui, invece, un pacchetto contenga uno o più oggetti con errori, il sistema crea un “esito controllo” che riporta il tipo di errore e il dettaglio dell’errore. A seconda degli errori rilevati, l’operatore della conservazione decide se rifiutare il pacchetto etichettandolo come “rifiutato”.
+ 
+Per ogni pacchetto "valido" o "rifiutato", viene creato un rapporto di versamento contenente un esito controllo che riporta ogni eventuale errore. 
+
+Il documento ottenuto viene spedito all’utente _“Produttore”_ che aveva inoltrato la richiesta di archiviazione.
