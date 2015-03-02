@@ -1,0 +1,43 @@
+<jxb:bindings version="1.0" 
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+  jxb:extensionBindingPrefixes="xjc">
+    
+    <jxb:bindings schemaLocation="mets.xsd">
+    
+        <jxb:bindings node="//xsd:complexType[@name='metsType']/xsd:attribute[@name='LABEL']">
+        	<jxb:property name="metsTypeLabel"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='structMapType']/xsd:attribute[@name='LABEL']">
+        	<jxb:property name="structMapTypeLabel"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='divType']/xsd:attribute[@name='LABEL']">
+        	<jxb:property name="divTypeLabel"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='behaviorSecType']/xsd:attribute[@name='LABEL']">
+        	<jxb:property name="behaviorSecTypeLabel"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='behaviorType']/xsd:attribute[@name='LABEL']">
+        	<jxb:property name="behaviorTypeLabel"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:complexType[@name='objectType']/xsd:attribute[@name='LABEL']">
+        	<jxb:property name="objectTypeLabel"/>
+        </jxb:bindings>
+            
+        <jxb:bindings node="//xsd:element[@name='mdRef']/xsd:complexType/xsd:attribute[@name='LABEL']">
+        	<jxb:property name="mdRefLabel"/>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xsd:element[@name='mdWrap']/xsd:complexType/xsd:attribute[@name='LABEL']">
+        	<jxb:property name="mdWrapLabel"/>
+        </jxb:bindings>
+            
+    </jxb:bindings>
+
+</jxb:bindings>
