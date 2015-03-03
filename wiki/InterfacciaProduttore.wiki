@@ -1,3 +1,10 @@
 #summary Descizione del web service esposto dall'attore Produttore.
+#labels Phase-Design
 
-= Introduction =
+= Web service Produttore =
+
+L'utente che effettua una richiesta di versamento deve esporre un web service in modo tale da essere in grado di ricevere, in maniera asincrona, dei messaggi che attestino il risultato della procedura di versamento richiesta.
+
+L'indirizzo al quale invocare l'operazione _receiveReport_ viene fornito come parametro della richiesta di versamento (vedi InterfacciaSistemaDiConservazione).
+
+TODO: da ampliare quando definita meglio l'interfaccia.
