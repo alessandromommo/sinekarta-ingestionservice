@@ -1,5 +1,5 @@
 #summary Breve descrizione della procedura di versamento
-#labels PacchettoDiVersamento
+#labels Phase-Requirements
 
 = Procedura di versamento =
 
