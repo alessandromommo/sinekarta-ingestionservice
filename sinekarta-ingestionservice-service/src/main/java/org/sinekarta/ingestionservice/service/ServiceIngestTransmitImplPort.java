@@ -19,7 +19,7 @@ package org.sinekarta.ingestionservice.service;
 import java.util.Date;
 import java.util.logging.Logger;
 
-import org.sinekarta.ingestion.beans.Mets;
+import org.sinekarta.ingestionservice.mets.Mets;
 import org.sinekarta.ingestionservice.service.response.TransmissionResponse;
 import org.sinekarta.ingestionservice.service.response.TransmissionResponse.Response;
 
