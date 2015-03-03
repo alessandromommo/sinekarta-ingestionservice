@@ -3,7 +3,7 @@
 
 = Web service sistema di conservazione =
 
-L'accesso al sistema di conservazione avviene attraverso il servizio *ServiceIngestTransmit*. Da questo servizio è possibile invocare due operazioni differenti mediante le quali trasmettere il pacchetto di versamento. In particolare:
+L'accesso al sistema di conservazione avviene attraverso il servizio *!ServiceIngestTransmit*. Da questo servizio è possibile invocare due operazioni differenti mediante le quali trasmettere il pacchetto di versamento. In particolare:
 
   * L'operazione _transmitSip_ consente di trasmettere il pacchetto di versamento direttamente come parametro;
   * L'operazione _transmitLinkToSip_ consente di inviare al sistema di versamento un indirizzo dal quale prelevare il pacchetto di versamento.
