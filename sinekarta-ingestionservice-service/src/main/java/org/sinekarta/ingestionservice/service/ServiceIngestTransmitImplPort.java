@@ -16,6 +16,7 @@
  */
 package org.sinekarta.ingestionservice.service;
 
+import java.util.Date;
 import java.util.logging.Logger;
 
 import org.sinekarta.ingestion.beans.Mets;
@@ -44,7 +45,9 @@ public class ServiceIngestTransmitImplPort implements ServiceIngestTransmit {
 	public TransmissionResponse transmitSip(String arg0, Mets arg1) {
 		LOG.info("Executing operation transmitSip");
 		TransmissionResponse resp = new TransmissionResponse();
-		resp.setResponseId(Response.GENERIC_ERROR);
+		resp.setResponseId(1l);
+		resp.setTransmissionDate(new Date());
+		resp.setResponseStatus(Response.SUCCESS);
 		resp.setResponseMessage("transmitSip OK");
 		
 		return resp;
@@ -55,7 +58,9 @@ public class ServiceIngestTransmitImplPort implements ServiceIngestTransmit {
 	public TransmissionResponse transmitLinkToSip(String arg0, String arg1) {
 		LOG.info("Executing operation transmitLinkToSip");
 		TransmissionResponse resp = new TransmissionResponse();
-		resp.setResponseId(Response.SUCCESS);
+		resp.setResponseId(1l);
+		resp.setTransmissionDate(new Date());
+		resp.setResponseStatus(Response.SUCCESS);
 		resp.setResponseMessage("transmitLinkToSip OK");
 		
 		return resp;

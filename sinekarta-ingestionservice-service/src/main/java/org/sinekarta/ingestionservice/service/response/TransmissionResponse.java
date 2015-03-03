@@ -16,6 +16,8 @@
  */
 package org.sinekarta.ingestionservice.service.response;
 
+import java.util.Date;
+
 /**
  * 
  * @author Alessandro Mommo
@@ -28,40 +30,79 @@ public class TransmissionResponse {
 	    SUCCESS,
 	    IO_ERROR,
 	    GENERIC_ERROR
-	    
 	}
 	
-	private Response responseId;
-	private String responseMessage;
+	private long transmissionId;
+	private Date transmissionDate;
+	private Response transmissionStatus;
+	private String transmissionMessage;
 	
 	/**
 	 * @return the responseId
 	 */
-	public Response getResponseId() {
-		return responseId;
+	public long getResponseId() {
+		return transmissionId;
 	}
+	
 	/**
 	 * @param responseId the responseId to set
 	 */
-	public void setResponseId(Response responseId) {
-		this.responseId = responseId;
+	public void setResponseId(long responseId) {
+		this.transmissionId = responseId;
 	}
+	
 	/**
 	 * @return the responseMessage
 	 */
 	public String getResponseMessage() {
-		return responseMessage;
+		return transmissionMessage;
 	}
+	
 	/**
 	 * @param responseMessage the responseMessage to set
 	 */
 	public void setResponseMessage(String responseMessage) {
-		this.responseMessage = responseMessage;
+		this.transmissionMessage = responseMessage;
 	}
-
+	
+	/**
+	 * @return the transmissionDate
+	 */
+	public Date getTransmissionDate() {
+		return transmissionDate;
+	}
+	
+	/**
+	 * @param transmissionDate the transmissionDate to set
+	 */
+	public void setTransmissionDate(Date transmissionDate) {
+		this.transmissionDate = transmissionDate;
+	}
+	
+	/**
+	 * @return the responseStatus
+	 */
+	public Response getResponseStatus() {
+		return transmissionStatus;
+	}
+	
+	/**
+	 * @param responseStatus the responseStatus to set
+	 */
+	public void setResponseStatus(Response responseStatus) {
+		this.transmissionStatus = responseStatus;
+	}
+	
+	/**
+	 * Utility method to print the response.
+	 * 
+	 * @return A string representing the content of the received response.
+	 */
 	public String toString() {
 		return "TransmissionResponse content:"
-				+ "\nresponseId = " + this.responseId
-				+ "\nresponseMessage = " + this.responseMessage;
+				+ "\ntransmissionId = " + this.transmissionId
+				+ "\ntransmissionDate = " + this.transmissionDate
+				+ "\ntransmissionStatus = " + this.transmissionStatus
+				+ "\ntransmissionMessage = " + this.transmissionMessage;
 	}
 }
