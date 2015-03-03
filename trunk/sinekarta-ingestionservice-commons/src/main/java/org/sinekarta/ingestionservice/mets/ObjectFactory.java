@@ -2,11 +2,11 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.02 alle 05:23:20 PM CET 
+// Generato il: 2015.03.03 alle 07:24:26 PM CET 
 //
 
 
-package org.sinekarta.ingestion.beans;
+package org.sinekarta.ingestionservice.mets;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the org.sinekarta.ingestion.beans package. 
+ * generated in the org.sinekarta.ingestionservice.mets package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -30,7 +30,7 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.sinekarta.ingestion.beans
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.sinekarta.ingestionservice.mets
      * 
      */
     public ObjectFactory() {

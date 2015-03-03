@@ -42,7 +42,7 @@
 							        <include>bindings.xml</include>
 							    </bindingIncludes>       
 							    <generateDirectory>src/main/java</generateDirectory>
-							    <generatePackage>org.sinekarta.ingestion.beans</generatePackage> 
+							    <generatePackage>org.sinekarta.ingestionservice.mets</generatePackage> 
 							    <episode>false</episode>
                         	<verbose>true</verbose>
                     	</configuration> 
