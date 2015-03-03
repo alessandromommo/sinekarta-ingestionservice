@@ -5,7 +5,7 @@
 
 Di seguito il WSDL con i servizi messi a disposizione dal sistema di conservazione.
 
-Il file contiene anche le definizioni dei tipi utilizzati per l'invocazione. Fra questi, l'elemento `<mets>` definisce il formato del pacchetto di versamento secondo lo standard [http://www.loc.gov/standards/mets/mets.xsd METS versione 1.10].
+Il file contiene anche le definizioni dei tipi utilizzati per l'invocazione. Fra questi, l'elemento `<mets>` definisce il formato del pacchetto di versamento secondo lo standard [http://www.loc.gov/standards/mets/mets.xsd METS versione 1.10] il cui DTO, utilizzato come parametro dell'operazione _transmitSip_ (vedi InterfacciaSistemaDiConservazione), è contenuto nel package `org.sinekarta.ingestion.mets` del modulo `sinekarta-ingestionservice-commons` (vedi OrganizzazioneSorgenti).
 
 {{{
 <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.service.sinekarta.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ServiceIngestTransmitImplService" targetNamespace="http://ws.service.sinekarta.org/">
