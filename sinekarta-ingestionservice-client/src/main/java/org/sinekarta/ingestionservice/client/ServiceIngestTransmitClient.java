@@ -16,10 +16,6 @@
  */
 package org.sinekarta.ingestionservice.client;
 
-/**
- * Please modify this class to meet your needs
- * This class is not complete
- */
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.sinekarta.ingestionservice.mets.Mets;
@@ -28,25 +24,32 @@ import org.sinekarta.ingestionservice.service.response.TransmissionResponse;
 
 
 
-public final class ServiceIngestTransmitImplPort_Client {
+public class ServiceIngestTransmitClient {
 
-    //private static final QName SERVICE_NAME = new QName("http://ws.service.jenia.org/", "ServiceIngestTransmitImplService");
-
-    private ServiceIngestTransmitImplPort_Client() {
+	private JaxWsProxyFactoryBean factory;
+	private ServiceIngestTransmit client;
+	
+    public ServiceIngestTransmitClient(String servicePortAddress) {
+    	factory = new JaxWsProxyFactoryBean();
+    	factory.setServiceClass(ServiceIngestTransmit.class);
+        factory.setAddress(servicePortAddress);
+        client = (ServiceIngestTransmit) factory.create();
     }
 
-    public static void main(String args[]) throws java.lang.Exception {
-        
-    	JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-        factory.setServiceClass(ServiceIngestTransmit.class);
-        factory.setAddress("http://localhost:8080/sinekarta-ingestionservice-service/services/ServiceIngestTransmitImplPort");
-        ServiceIngestTransmit client = (ServiceIngestTransmit) factory.create();
-        
-        Mets mets = new Mets();
-        TransmissionResponse reply = client.transmitSip("Testing it!", mets);
-        System.out.println("Server said: " + reply);
-        
-        
+    public TransmissionResponse transmitSip(String responsePortAddress, Mets mets) {
+    	TransmissionResponse reply = client.transmitSip(responsePortAddress, mets);
+    	
+    	return reply;
+    }
+    
+    public TransmissionResponse transmitLinkToSip(String responsePortAddress, String sipUrl) {
+    	TransmissionResponse reply = client.transmitLinkToSip(responsePortAddress, sipUrl);
+    	
+    	return reply;
+    }
+    
+    //public static void main(String args[]) throws java.lang.Exception {
+                
     	/*
     	URL wsdlURL = ServiceIngestTransmitImplService.WSDL_LOCATION;
         if (args.length > 0 && args[0] != null && !"".equals(args[0])) { 
@@ -86,7 +89,7 @@ public final class ServiceIngestTransmitImplPort_Client {
 		*/
     	
     	
-        System.exit(0);
-    }
+        //System.exit(0);
+    //}
 
 }

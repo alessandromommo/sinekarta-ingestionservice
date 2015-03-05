@@ -17,6 +17,7 @@
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <cxf.version>3.0.4</cxf.version>
   </properties>
   
   <dependencies>
@@ -29,25 +30,20 @@
     </dependency>
     
     <dependency>
-	  <groupId>org.sinekarta.ingestionservice.service</groupId>
-  <artifactId>sinekarta-ingestionservice-service</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    
-    <dependency>
 		<groupId>org.apache.cxf</groupId>
 		<artifactId>cxf-rt-frontend-jaxws</artifactId>
-		<version>3.0.4</version>
+		<version>${cxf.version}</version>
 	</dependency>
 
     <dependency>
-	      <groupId>junit</groupId>
-	      <artifactId>junit</artifactId>
-	      <scope>test</scope>
-	    </dependency>
-  		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+ 		<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+	</dependency>
+	
   </dependencies>
 </project>
