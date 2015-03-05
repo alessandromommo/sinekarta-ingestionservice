@@ -1,0 +1,161 @@
+<jxb:bindings version="1.0" 
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+  jxb:extensionBindingPrefixes="xjc">
+    
+    <jxb:bindings schemaLocation="mods.xsd">
+    
+        <jxb:bindings node="//xs:complexType[@name='abstractDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="abstractDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='accessConditionDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="accessConditionDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='genreDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="genreDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='identifierDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="identifierDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='languageTermDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="languageTermDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='scriptTermDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="scriptTermDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='physicalLocationDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="physicalLocationDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='copyInformationDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="copyInformationDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='formDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="formDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='nameDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="nameDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='namePartDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="namePartDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='roleTermDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="roleTermDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='noteDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="noteDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='placeTermDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="placeTermDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='dateOtherDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="dateOtherDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='partDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="partDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='detailDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="detailDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:element[@name='text']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="textType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='physicalDescriptionNote']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="physicalDescriptionNoteType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='relatedItemDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="relatedItemDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='subjectTitleInfoDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="subjectTitleInfoDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='subjectNameDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="subjectNameDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='tableOfContentsDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="tableOfContentsDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:complexType[@name='titleInfoDefinition']">
+        	<jxb:bindings node=".//xs:attribute[@name='type']">
+                <jxb:property name="titleInfoDefinitionType"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+        <jxb:bindings node="//xs:attributeGroup[@name='languageAttributeGroup']">
+        	<jxb:bindings node=".//xs:attribute[@name='lang']">
+                <jxb:property name="languageAttributeGroupLang"/>
+            </jxb:bindings>
+        </jxb:bindings>
+        
+    </jxb:bindings>
+
+</jxb:bindings>

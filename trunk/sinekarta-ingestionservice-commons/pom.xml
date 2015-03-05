@@ -33,16 +33,37 @@
                         	<goal>generate</goal>
                     	</goals>
                     	<configuration>
-                        	 <schemaDirectory>src/main/resources</schemaDirectory>
+                        	 <schemaDirectory>src/main/resources/mets</schemaDirectory>
     							<schemaIncludes>
 							        <include>mets.xsd</include>
 							    </schemaIncludes>           
-							    <bindingDirectory>src/main/resources</bindingDirectory>
+							    <bindingDirectory>src/main/resources/mets</bindingDirectory>
 							    <bindingIncludes>
 							        <include>bindings.xml</include>
 							    </bindingIncludes>       
-							    <generateDirectory>src/main/java</generateDirectory>
+							    <generateDirectory>${project.build.directory}/generated-sources/mets</generateDirectory>
 							    <generatePackage>org.sinekarta.ingestionservice.mets</generatePackage> 
+							    <episode>false</episode>
+                        	<verbose>true</verbose>
+                    	</configuration> 
+                	</execution>
+                	
+                	<execution>
+                		<id>jaxb-mods</id>
+                    	<goals>
+                        	<goal>generate</goal>
+                    	</goals>
+                    	<configuration>
+                        	 <schemaDirectory>src/main/resources/mods</schemaDirectory>
+    							<schemaIncludes>
+							        <include>mods.xsd</include>
+							    </schemaIncludes>           
+							    <bindingDirectory>src/main/resources/mods</bindingDirectory>
+							    <bindingIncludes>
+							        <include>bindings.xml</include>
+							    </bindingIncludes>      
+							    <generateDirectory>${project.build.directory}/generated-sources/mods</generateDirectory>
+							    <generatePackage>org.sinekarta.ingestionservice.mods</generatePackage> 
 							    <episode>false</episode>
                         	<verbose>true</verbose>
                     	</configuration> 
