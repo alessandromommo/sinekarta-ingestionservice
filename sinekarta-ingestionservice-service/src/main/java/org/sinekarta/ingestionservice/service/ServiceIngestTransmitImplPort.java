@@ -17,11 +17,12 @@
 package org.sinekarta.ingestionservice.service;
 
 import java.util.Date;
-import java.util.logging.Logger;
 
+import org.apache.commons.validator.routines.UrlValidator;
+import org.apache.log4j.Logger;
 import org.sinekarta.ingestionservice.mets.Mets;
+import org.sinekarta.ingestionservice.service.response.TransmissionError;
 import org.sinekarta.ingestionservice.service.response.TransmissionResponse;
-import org.sinekarta.ingestionservice.service.response.TransmissionResponse.Response;
 
 
 /**
@@ -39,31 +40,90 @@ import org.sinekarta.ingestionservice.service.response.TransmissionResponse.Resp
 public class ServiceIngestTransmitImplPort implements ServiceIngestTransmit {
 
     private static final Logger LOG = Logger.getLogger(ServiceIngestTransmitImplPort.class.getName());
+    
+    private static long responseId = 0;
 
     
 	@Override
-	public TransmissionResponse transmitSip(String arg0, Mets arg1) {
+	public TransmissionResponse transmitSip(String responsePortAddres, Mets mets) {
 		LOG.info("Executing operation transmitSip");
-		TransmissionResponse resp = new TransmissionResponse();
-		resp.setResponseId(1l);
-		resp.setTransmissionDate(new Date());
-		resp.setResponseStatus(Response.SUCCESS);
-		resp.setResponseMessage("transmitSip OK");
+		
+		TransmissionResponse resp = checkParameters(responsePortAddres, mets);
+		
+		if(resp == null) {
+			resp = createTransmissionResponse(TransmissionError.NO_ERROR);
+		}
 		
 		return resp;
 	}
 
 	
 	@Override
-	public TransmissionResponse transmitLinkToSip(String arg0, String arg1) {
+	public TransmissionResponse transmitLinkToSip(String responsePortAddres, String sipAddress) {
 		LOG.info("Executing operation transmitLinkToSip");
-		TransmissionResponse resp = new TransmissionResponse();
-		resp.setResponseId(1l);
-		resp.setTransmissionDate(new Date());
-		resp.setResponseStatus(Response.SUCCESS);
-		resp.setResponseMessage("transmitLinkToSip OK");
+		
+		TransmissionResponse resp = checkParameters(responsePortAddres, sipAddress);
+		
+		if(resp == null) {
+			resp = createTransmissionResponse(TransmissionError.NO_ERROR);
+		}
 		
 		return resp;
 	}
 
+	private TransmissionResponse checkParameters(String responsePortAddres, Mets mets) {
+		TransmissionResponse resp = null;
+		
+		if(!isValidAddress(responsePortAddres)) {
+			resp = createTransmissionResponse(TransmissionError.MISSED_RESPONSE_PORT_ADDRESS);
+		}
+		
+		if(mets == null) {
+			if(resp == null)
+				resp = createTransmissionResponse(TransmissionError.MISSED_SIP);
+			else
+				resp.addTransmissionError(TransmissionError.MISSED_SIP);
+		}
+		
+		return resp;
+	}
+	
+	private TransmissionResponse checkParameters(String responsePortAddres, String sipAddress) {
+		TransmissionResponse resp = null;
+		
+		if(!isValidAddress(responsePortAddres)) {
+			resp = createTransmissionResponse(TransmissionError.MISSED_RESPONSE_PORT_ADDRESS);
+		}
+		
+		if(!isValidAddress(sipAddress)) {
+			if(resp == null)
+				resp = createTransmissionResponse(TransmissionError.MISSED_SIP_ADDRESS);
+			else
+				resp.addTransmissionError(TransmissionError.MISSED_SIP_ADDRESS);
+		}
+		
+		return resp;
+	}
+	
+	private boolean isValidAddress(String address) {
+		UrlValidator defaultValidator = new UrlValidator();
+		
+		if((address == null) || (address.length() == 0) || !defaultValidator.isValid(address))
+			return false;
+		
+		return true;
+	}
+	
+	private long generateResponseId() {
+		return ++responseId;
+	}
+	
+	private TransmissionResponse createTransmissionResponse(TransmissionError error) {
+		TransmissionResponse resp = new TransmissionResponse();
+		resp.setTransmissionId(generateResponseId());
+		resp.setTransmissionDate(new Date());
+		resp.addTransmissionError(error);
+		
+		return resp;
+	}
 }
