@@ -218,6 +218,7 @@ mptr and area elements for mapping MPEG21 DII Identifier values
 			</xsd:complexContent>
 		</xsd:complexType>
 	</xsd:element>
+	
 	<xsd:complexType name="metsType">
 		<xsd:annotation>
 			<xsd:documentation xml:lang="en">metsType: Complex Type for METS Sections

@@ -64,8 +64,14 @@ The schema has three parts:
 **      Definition of a single MODS record                           **
 **********************************************************************
 -->
-	<xs:element name="mods" type="modsDefinition"/>
-	<!--  -->
+	<xs:element name="mods">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="modsDefinition"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
 	<xs:complexType name="modsDefinition">
 		<xs:group ref="modsGroup" maxOccurs="unbounded"/>
 		<xs:attribute name="ID" type="xs:ID"/>
@@ -87,8 +93,15 @@ The schema has three parts:
 **      Definition of a MODS collection                                **
 **********************************************************************
 -->
-	<xs:element name="modsCollection" type="modsCollectionDefinition"/>
-	<!-- -->
+	
+	<xs:element name="modsCollection">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="modsCollectionDefinition"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
 	<xs:complexType name="modsCollectionDefinition">
 		<xs:sequence>
 			<xs:element ref="mods" maxOccurs="unbounded"/>

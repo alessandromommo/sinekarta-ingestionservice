@@ -25,7 +25,7 @@ import org.junit.runners.Suite.SuiteClasses;
  *
  */
 @RunWith(Suite.class)
-@SuiteClasses({ AppTest.class })
+@SuiteClasses({ MetsUtilsTest.class })
 public class AllTests {
 
 }

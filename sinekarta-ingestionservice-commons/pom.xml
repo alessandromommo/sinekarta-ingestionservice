@@ -42,7 +42,7 @@
 							        <include>bindings.xml</include>
 							    </bindingIncludes>       
 							    <generateDirectory>${project.build.directory}/generated-sources/mets</generateDirectory>
-							    <generatePackage>org.sinekarta.ingestionservice.mets</generatePackage> 
+							    <generatePackage>org.sinekarta.ingestionservice.commons.mets</generatePackage> 
 							    <episode>false</episode>
                         	<verbose>true</verbose>
                     	</configuration> 
@@ -63,11 +63,29 @@
 							        <include>bindings.xml</include>
 							    </bindingIncludes>      
 							    <generateDirectory>${project.build.directory}/generated-sources/mods</generateDirectory>
-							    <generatePackage>org.sinekarta.ingestionservice.mods</generatePackage> 
+							    <generatePackage>org.sinekarta.ingestionservice.commons.mods</generatePackage> 
 							    <episode>false</episode>
                         	<verbose>true</verbose>
                     	</configuration> 
                 	</execution>
+                	
+                	<execution>
+                		<id>jaxb-metadata</id>
+                    	<goals>
+                        	<goal>generate</goal>
+                    	</goals>
+                    	<configuration>
+                        	 <schemaDirectory>src/main/resources</schemaDirectory>
+    							<schemaIncludes>
+							        <include>metadata.xsd</include>
+							    </schemaIncludes> 
+							    <generateDirectory>${project.build.directory}/generated-sources/metadata</generateDirectory>
+							    <generatePackage>org.sinekarta.ingestionservice.commons</generatePackage> 
+							    <episode>false</episode>
+                        	<verbose>true</verbose>
+                    	</configuration> 
+                	</execution>
+            	
             	</executions>
          	</plugin>
          
