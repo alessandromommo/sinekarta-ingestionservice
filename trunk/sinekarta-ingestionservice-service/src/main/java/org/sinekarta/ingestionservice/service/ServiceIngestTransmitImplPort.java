@@ -20,9 +20,10 @@ import java.util.Date;
 
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.log4j.Logger;
-import org.sinekarta.ingestionservice.mets.Mets;
-import org.sinekarta.ingestionservice.service.response.TransmissionError;
-import org.sinekarta.ingestionservice.service.response.TransmissionResponse;
+import org.sinekarta.ingestionservice.commons.mets.Mets;
+import org.sinekarta.ingestionservice.commons.service.ServiceIngestTransmit;
+import org.sinekarta.ingestionservice.commons.service.response.TransmissionError;
+import org.sinekarta.ingestionservice.commons.service.response.TransmissionResponse;
 
 
 /**
@@ -35,7 +36,7 @@ import org.sinekarta.ingestionservice.service.response.TransmissionResponse;
                       serviceName = "ServiceIngestTransmitImplService",
                       portName = "ServiceIngestTransmitImplPort",
                       targetNamespace = "http://ws.service.sinekarta.org/",
-                      endpointInterface = "org.sinekarta.ingestionservice.service.ServiceIngestTransmit")
+                      endpointInterface = "org.sinekarta.ingestionservice.commons.metadata.service.ServiceIngestTransmit")
                       
 public class ServiceIngestTransmitImplPort implements ServiceIngestTransmit {
 
