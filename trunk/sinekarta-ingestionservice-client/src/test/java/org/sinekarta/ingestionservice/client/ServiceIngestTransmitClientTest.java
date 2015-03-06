@@ -23,8 +23,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.sinekarta.ingestionservice.mets.Mets;
-import org.sinekarta.ingestionservice.service.response.TransmissionResponse;
+import org.sinekarta.ingestionservice.commons.mets.Mets;
+import org.sinekarta.ingestionservice.commons.service.response.TransmissionResponse;
 
 
 /**
