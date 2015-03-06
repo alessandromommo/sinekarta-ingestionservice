@@ -18,9 +18,9 @@ package org.sinekarta.ingestionservice.client;
 
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
-import org.sinekarta.ingestionservice.mets.Mets;
-import org.sinekarta.ingestionservice.service.ServiceIngestTransmit;
-import org.sinekarta.ingestionservice.service.response.TransmissionResponse;
+import org.sinekarta.ingestionservice.commons.mets.Mets;
+import org.sinekarta.ingestionservice.commons.service.ServiceIngestTransmit;
+import org.sinekarta.ingestionservice.commons.service.response.TransmissionResponse;
 
 
 
