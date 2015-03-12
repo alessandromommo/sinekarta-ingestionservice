@@ -1,0 +1,41 @@
+#summary Analisi dei casi d'uso.
+#labels Phase-Requirements
+
+= Introduzione =
+
+In questa sezione sono descritti alcuni dei principali casi d’uso individuati, che consentono di evidenziare al meglio i requisiti funzionali del sistema, insieme ad uno scenario tipico di utilizzo.
+
+ <table border="1" frame="box">
+  <tr>
+    <td>*CU1:* Autenticazione</td>
+  </tr>
+  <tr>
+    <td>*Descrizione:* Il caso d’uso si riferisce al processo di autenticazione che un qualsiasi utente deve sempre effettuare prima di ogni operazione.</td>
+  </tr>
+  <tr>
+    <td>*Attore:* Utente</td>
+  </tr>
+  <tr>
+    <td>*Precondizione:* Il sistema mostra la schermata di login.</td>
+  </tr>
+  <tr>
+    <td>*Scenario principale:* 
+ # Il caso d’uso inizia quando un utente decide di accedere al sistema; 
+ # L’utente inserisce le propie credenziali di accesso; 
+ # Il sistema verifica la correttezza dei dati forniti e abilita l’utente alla navigazione;</td>
+  </tr>
+  <tr>
+    <td>*Attore:* Utente</td>
+  </tr>
+</table> 
+
+
+
+
+
+Scenari secondari:
+      2.1 EXTENSION “Richiede credenziali”;
+      
+      3.1 L’utente inserisce credenziali non valide;
+         3.2 Il sistema presenta un messaggio di errore;  
+Postcondizione: L’utente è abilitato alla navigazione è viene indirizzato alla home page.
