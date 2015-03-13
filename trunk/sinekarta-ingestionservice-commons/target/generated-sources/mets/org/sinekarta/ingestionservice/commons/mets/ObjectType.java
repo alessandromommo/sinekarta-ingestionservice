@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:57 PM CET 
+// Generato il: 2015.03.13 alle 07:51:10 PM CET 
 //
 
 
@@ -31,8 +31,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * &lt;complexType name="objectType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;attGroup ref="{http://www.loc.gov/METS/}LOCATION"/&gt;
  *       &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
+ *       &lt;attGroup ref="{http://www.loc.gov/METS/}LOCATION"/&gt;
  *       &lt;attribute name="ID" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
  *       &lt;attribute name="LABEL" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/restriction&gt;
@@ -53,10 +53,6 @@ public class ObjectType {
     protected String id;
     @XmlAttribute(name = "LABEL")
     protected String objectTypeLabel;
-    @XmlAttribute(name = "LOCTYPE", required = true)
-    protected String loctype;
-    @XmlAttribute(name = "OTHERLOCTYPE")
-    protected String otherloctype;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
     protected String type;
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
@@ -72,6 +68,10 @@ public class ObjectType {
     protected String show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected String actuate;
+    @XmlAttribute(name = "LOCTYPE", required = true)
+    protected String loctype;
+    @XmlAttribute(name = "OTHERLOCTYPE")
+    protected String otherloctype;
 
     /**
      * Recupera il valore della proprietà id.
@@ -119,54 +119,6 @@ public class ObjectType {
      */
     public void setObjectTypeLabel(String value) {
         this.objectTypeLabel = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà loctype.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLOCTYPE() {
-        return loctype;
-    }
-
-    /**
-     * Imposta il valore della proprietà loctype.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLOCTYPE(String value) {
-        this.loctype = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà otherloctype.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getOTHERLOCTYPE() {
-        return otherloctype;
-    }
-
-    /**
-     * Imposta il valore della proprietà otherloctype.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setOTHERLOCTYPE(String value) {
-        this.otherloctype = value;
     }
 
     /**
@@ -339,6 +291,54 @@ public class ObjectType {
      */
     public void setActuate(String value) {
         this.actuate = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà loctype.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLOCTYPE() {
+        return loctype;
+    }
+
+    /**
+     * Imposta il valore della proprietà loctype.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLOCTYPE(String value) {
+        this.loctype = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà otherloctype.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOTHERLOCTYPE() {
+        return otherloctype;
+    }
+
+    /**
+     * Imposta il valore della proprietà otherloctype.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOTHERLOCTYPE(String value) {
+        this.otherloctype = value;
     }
 
 }

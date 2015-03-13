@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:59 PM CET 
+// Generato il: 2015.03.13 alle 07:51:13 PM CET 
 //
 
 
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{http://www.loc.gov/mods/v3}extensionDefinition"&gt;
  *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}languageAttributeGroup"/&gt;
- *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}altFormatAttributeGroup"/&gt;
  *       &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
+ *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}altFormatAttributeGroup"/&gt;
  *       &lt;attribute name="type" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="altRepGroup" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/extension&gt;
@@ -54,11 +54,6 @@ public class AccessConditionDefinition
     protected String script;
     @XmlAttribute(name = "transliteration")
     protected String transliteration;
-    @XmlAttribute(name = "altFormat")
-    @XmlSchemaType(name = "anyURI")
-    protected String altFormat;
-    @XmlAttribute(name = "contentType")
-    protected String contentType;
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
     protected String type;
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
@@ -74,6 +69,11 @@ public class AccessConditionDefinition
     protected String show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected String actuate;
+    @XmlAttribute(name = "altFormat")
+    @XmlSchemaType(name = "anyURI")
+    protected String altFormat;
+    @XmlAttribute(name = "contentType")
+    protected String contentType;
 
     /**
      * Recupera il valore della proprietà accessConditionDefinitionType.
@@ -217,54 +217,6 @@ public class AccessConditionDefinition
      */
     public void setTransliteration(String value) {
         this.transliteration = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà altFormat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAltFormat() {
-        return altFormat;
-    }
-
-    /**
-     * Imposta il valore della proprietà altFormat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAltFormat(String value) {
-        this.altFormat = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà contentType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getContentType() {
-        return contentType;
-    }
-
-    /**
-     * Imposta il valore della proprietà contentType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setContentType(String value) {
-        this.contentType = value;
     }
 
     /**
@@ -437,6 +389,54 @@ public class AccessConditionDefinition
      */
     public void setActuate(String value) {
         this.actuate = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà altFormat.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAltFormat() {
+        return altFormat;
+    }
+
+    /**
+     * Imposta il valore della proprietà altFormat.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAltFormat(String value) {
+        this.altFormat = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà contentType.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getContentType() {
+        return contentType;
+    }
+
+    /**
+     * Imposta il valore della proprietà contentType.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setContentType(String value) {
+        this.contentType = value;
     }
 
 }

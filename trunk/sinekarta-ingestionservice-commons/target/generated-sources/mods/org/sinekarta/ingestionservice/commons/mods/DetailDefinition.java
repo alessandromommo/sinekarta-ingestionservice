@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:59 PM CET 
+// Generato il: 2015.03.13 alle 07:51:13 PM CET 
 //
 
 
@@ -51,9 +51,9 @@ import javax.xml.bind.annotation.XmlType;
 public class DetailDefinition {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "number", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "title", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "caption", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "title", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "number", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
     })
     protected List<JAXBElement<StringPlusLanguage>> numberOrCaptionOrTitle;
     @XmlAttribute(name = "type")

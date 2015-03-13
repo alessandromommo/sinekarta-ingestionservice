@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:59 PM CET 
+// Generato il: 2015.03.13 alle 07:51:13 PM CET 
 //
 
 
@@ -54,13 +54,13 @@ import javax.xml.bind.annotation.XmlType;
 public class RecordInfoDefinition {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "recordChangeDate", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "recordCreationDate", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "descriptionStandard", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "recordContentSource", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "recordOrigin", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "recordCreationDate", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "recordIdentifier", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "languageOfCataloging", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "recordChangeDate", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "languageOfCataloging", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "recordOrigin", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
     })
     protected List<JAXBElement<?>> recordContentSourceOrRecordCreationDateOrRecordChangeDate;
     @XmlAttribute(name = "displayLabel")
@@ -97,10 +97,10 @@ public class RecordInfoDefinition {
      * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
      * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
-     * {@link JAXBElement }{@code <}{@link StringPlusLanguage }{@code >}
-     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link RecordIdentifierDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link LanguageDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link StringPlusLanguage }{@code >}
      * 
      * 
      */

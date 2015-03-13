@@ -4,6 +4,5 @@
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/target/generated-sources/mets"/>
         <wb-resource deploy-path="/" source-path="/target/generated-sources/mods"/>
-        <wb-resource deploy-path="/" source-path="/src/test/resources"/>
     </wb-module>
 </project-modules>

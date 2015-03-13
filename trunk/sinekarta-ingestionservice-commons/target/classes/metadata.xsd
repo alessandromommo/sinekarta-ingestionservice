@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.jenia.org/METADATA" xmlns="http://www.jenia.org/METADATA"  
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	
+	<xsd:element name="metadataGroup">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+				This tag is intended to provide a generic way to express simple metadata on file. 
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="metadataGroupType"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="metadataGroupType">
+ 		<xsd:sequence>
+   			<xsd:element name="metadata" type="metadataType" />
+ 		</xsd:sequence>
+ 		<xsd:attribute name="fileID" type="xsd:string" />
+	</xsd:complexType>
+
+	<xsd:complexType name="metadataType">
+ 		<xsd:attribute name="name" type="xsd:string" />
+ 		<xsd:attribute name="type" type="typeType" />
+ 		<xsd:attribute name="value" type="xsd:anySimpleType" />
+	</xsd:complexType>
+	
+	<xsd:simpleType name="typeType">
+  		<xsd:restriction base="xsd:string">
+    		<xsd:enumeration value="string"/>
+    		<xsd:enumeration value="integer"/>
+    		<xsd:enumeration value="float"/>
+    		<xsd:enumeration value="double"/>
+    		<xsd:enumeration value="date"/>
+  		</xsd:restriction>
+	</xsd:simpleType>
+	
+</xsd:schema>

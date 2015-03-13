@@ -16,7 +16,6 @@
  */
 package org.sinekarta.ingestionservice.commons.service.response;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,13 +29,8 @@ import javax.xml.bind.annotation.XmlType;
  *
  */
 @XmlType
-public class TransmissionResponse implements Serializable {
+public class TransmissionResponse {
     
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -9145658279299866192L;
-	
 	private long transmissionId;
 	private Date transmissionDate;
 	@XmlElement

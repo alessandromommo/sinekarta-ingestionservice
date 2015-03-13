@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:59 PM CET 
+// Generato il: 2015.03.13 alle 07:51:13 PM CET 
 //
 
 
@@ -44,9 +44,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://www.loc.gov/mods/v3}occupation"/&gt;
  *         &lt;element ref="{http://www.loc.gov/mods/v3}genre"/&gt;
  *       &lt;/choice&gt;
+ *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}languageAttributeGroup"/&gt;
  *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}authorityAttributeGroup"/&gt;
  *       &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
- *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}languageAttributeGroup"/&gt;
  *       &lt;attribute name="ID" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
  *       &lt;attribute name="displayLabel" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="altRepGroup" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
@@ -65,16 +65,16 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class SubjectDefinition {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "name", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "geographic", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "topic", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "hierarchicalGeographic", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "occupation", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "cartographics", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "temporal", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "titleInfo", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "genre", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "hierarchicalGeographic", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "temporal", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "geographicCode", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "genre", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "occupation", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "topic", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "cartographics", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "name", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
     })
     protected List<JAXBElement<?>> topicOrGeographicOrTemporal;
     @XmlAttribute(name = "ID")
@@ -89,6 +89,14 @@ public class SubjectDefinition {
     @XmlAttribute(name = "usage")
     @XmlSchemaType(name = "anySimpleType")
     protected String usage;
+    @XmlAttribute(name = "lang")
+    protected String languageAttributeGroupLang;
+    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
+    protected String lang;
+    @XmlAttribute(name = "script")
+    protected String script;
+    @XmlAttribute(name = "transliteration")
+    protected String transliteration;
     @XmlAttribute(name = "authority")
     protected String authority;
     @XmlAttribute(name = "authorityURI")
@@ -112,14 +120,6 @@ public class SubjectDefinition {
     protected String show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected String actuate;
-    @XmlAttribute(name = "lang")
-    protected String languageAttributeGroupLang;
-    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
-    protected String lang;
-    @XmlAttribute(name = "script")
-    protected String script;
-    @XmlAttribute(name = "transliteration")
-    protected String transliteration;
 
     /**
      * Gets the value of the topicOrGeographicOrTemporal property.
@@ -139,16 +139,16 @@ public class SubjectDefinition {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link SubjectNameDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
-     * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
-     * {@link JAXBElement }{@code <}{@link HierarchicalGeographicDefinition }{@code >}
-     * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
-     * {@link JAXBElement }{@code <}{@link TemporalDefinition }{@code >}
-     * {@link JAXBElement }{@code <}{@link CartographicsDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link SubjectTitleInfoDefinition }{@code >}
-     * {@link JAXBElement }{@code <}{@link GeographicCodeDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link TemporalDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link HierarchicalGeographicDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link GenreDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link GeographicCodeDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
+     * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
+     * {@link JAXBElement }{@code <}{@link SubjectNameDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link CartographicsDefinition }{@code >}
      * 
      * 
      */
@@ -257,6 +257,102 @@ public class SubjectDefinition {
      */
     public void setUsage(String value) {
         this.usage = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà languageAttributeGroupLang.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLanguageAttributeGroupLang() {
+        return languageAttributeGroupLang;
+    }
+
+    /**
+     * Imposta il valore della proprietà languageAttributeGroupLang.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLanguageAttributeGroupLang(String value) {
+        this.languageAttributeGroupLang = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà lang.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLang() {
+        return lang;
+    }
+
+    /**
+     * Imposta il valore della proprietà lang.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLang(String value) {
+        this.lang = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà script.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getScript() {
+        return script;
+    }
+
+    /**
+     * Imposta il valore della proprietà script.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setScript(String value) {
+        this.script = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà transliteration.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTransliteration() {
+        return transliteration;
+    }
+
+    /**
+     * Imposta il valore della proprietà transliteration.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTransliteration(String value) {
+        this.transliteration = value;
     }
 
     /**
@@ -501,102 +597,6 @@ public class SubjectDefinition {
      */
     public void setActuate(String value) {
         this.actuate = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà languageAttributeGroupLang.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLanguageAttributeGroupLang() {
-        return languageAttributeGroupLang;
-    }
-
-    /**
-     * Imposta il valore della proprietà languageAttributeGroupLang.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLanguageAttributeGroupLang(String value) {
-        this.languageAttributeGroupLang = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà lang.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLang() {
-        return lang;
-    }
-
-    /**
-     * Imposta il valore della proprietà lang.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLang(String value) {
-        this.lang = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà script.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getScript() {
-        return script;
-    }
-
-    /**
-     * Imposta il valore della proprietà script.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setScript(String value) {
-        this.script = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà transliteration.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTransliteration() {
-        return transliteration;
-    }
-
-    /**
-     * Imposta il valore della proprietà transliteration.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTransliteration(String value) {
-        this.transliteration = value;
     }
 
 }
