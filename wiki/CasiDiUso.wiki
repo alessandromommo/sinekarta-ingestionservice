@@ -5,37 +5,211 @@
 
 In questa sezione sono descritti alcuni dei principali casi d’uso individuati, che consentono di evidenziare al meglio i requisiti funzionali del sistema, insieme ad uno scenario tipico di utilizzo.
 
- <table border="1" frame="box">
+[http://sinekarta-ingestionservice.googlecode.com/svn/wiki/sinekarta-ingestionservice-useCase3.png]
+
+==Crea fascicolo==
+
+<table border="1" width="1000px">
   <tr>
-    <td>*CU1:* Autenticazione</td>
+    <td>*CU1:* Crea fascicolo</td>
   </tr>
   <tr>
-    <td>*Descrizione:* Il caso d’uso si riferisce al processo di autenticazione che un qualsiasi utente deve sempre effettuare prima di ogni operazione.</td>
+    <td>*Descrizione:* Il caso d’uso si riferisce alla procedura di creazione di un fascicolo di file.</td>
   </tr>
   <tr>
     <td>*Attore:* Utente</td>
   </tr>
   <tr>
-    <td>*Precondizione:* Il sistema mostra la schermata di login.</td>
+    <td>*Precondizione:* Il sistema mostra la schermata relativa alla procedura.</td>
   </tr>
   <tr>
     <td>*Scenario principale:* 
- # Il caso d’uso inizia quando un utente decide di accedere al sistema; 
- # L’utente inserisce le propie credenziali di accesso; 
- # Il sistema verifica la correttezza dei dati forniti e abilita l’utente alla navigazione;</td>
+ # Il caso d’uso inizia quando un utente decide di creare un fascicolo e invoca l'operazione corrispondente;
+ # Il sistema chiede un identificativo univoco per il fascicolo;
+ # L'utente inserisce l'identificativo;
+ # *INCLUDE* "Seleziona file"
+ # Il sistema memorizza il fascicolo.</td>
+  </tr>
+  <tr>
+    <td>*Scenari secondari:*</td>
+  </tr>
+  <tr>
+    <td>*Postcondizione:* Il fascicolo è memorizzato correttamente all'interno del sistema con l'identificativo scelto.</td>
+  </tr>
+</table> 
+
+==Seleziona file==
+
+<table border="1" width="1000px">
+  <tr>
+    <td>*CU2:* Seleziona file</td>
+  </tr>
+  <tr>
+    <td>*Descrizione:* Il caso d’uso si riferisce alla selezione di un file memorizzato nel sistema.</td>
   </tr>
   <tr>
     <td>*Attore:* Utente</td>
   </tr>
-</table> 
+  <tr>
+    <td>*Precondizione:* Il sistema mostra la schermata relativa alla funzionalità.</td>
+  </tr>
+  <tr>
+    <td>*Scenario principale:* 
+<ol>
+<li>Il caso d'uso inizia quando un utente seleziona la funzione di visualizzazione dei file memorizzati nel sistema;</li>
+<li>Il sistema mostra una pagina con l'elenco dei file attualmente presenti;</li>
+<li>*FOR* ogni file selezionato:
+<dl>
+<dt>3.1 Il sistema mostra i dettagli del file;</dt>
+<dt>3.2 L'utente inserisce/modifica i metadati assegnati al file;</dt>
+</dl> 
+</li>
+<li>Il sistema memorizza correttamente tutte le modifiche.</li>
+</ol> 
+    </td>
+  </tr>
+  <tr>
+    <td>*Scenari secondari:*
+      3.2.1 L'utente assegna il file ad un fascicolo esistente;
+    </td>
+  </tr>
+  <tr>
+    <td>*Postcondizione:* Eventuali modifiche apportate dall'utente sono memorizzate correttamente dal sistema.</td>
+  </tr>
+</table>
 
+==Crea SIP==
 
+<table border="1" width="1000px">
+  <tr>
+    <td>*CU3:* Crea SIP</td>
+  </tr>
+  <tr>
+    <td>*Descrizione:* Il caso d’uso si riferisce alla procedura di creazione di un pacchetto di versamento.</td>
+  </tr>
+  <tr>
+    <td>*Attore:* Utente</td>
+  </tr>
+  <tr>
+    <td>*Precondizione:* Il sistema mostra la schermata relativa alla procedura.</td>
+  </tr>
+  <tr>
+    <td>*Scenario principale:* 
+<ol>
+<li>Il caso d’uso inizia quando un utente decide di creare un pacchetto di versamento;</li>
+<li>*FOR* ogni fascicolo da inserire nel pacchetto:
+<dl>
+<dt>2.1 *INCLUDE* "Crea fascicolo";</dt>
+<dt>2.2 Il fascicolo viene inserito nel pacchetto di versamento;</dt>
+</dl>
+</li>
+<li>*FOR* ogni file da inserire nel pacchetto:
+<dl>
+<dt>3.1 *INCLUDE* "Seleziona file";</dt>
+<dt>3.2 Il sistema chiede se nel pacchetto debba essere inserito il file oppure un link ad esso;</dt>
+<dt>3.3 L'utente seleziona la scelta corrispondente all'inserimento del file;</dt>
+<dt>3.4 Il sistema inserisce il file nel pacchetto;</dt>
+</dl> 
+</li>
+<li>L'utente inserisce un nome mnemonico per il pacchetto;</li>
+<li>Il sistema genera in identificativo univoco e lo assegna al pacchetto.</li>
+</ol>
+    </td>
+  </tr>
+  <tr>
+    <td>*Scenari secondari:*
+<ol>
+<dl>
+<dt>3.3.1 L'utente seleziona la scelta corrispondente all'inserimento di un link al file;</dt>
+<dt>3.3.2 Il sistema inserisce nel pacchetto l'indirizzo pubblico del file;</dt>
+</dl>
+</ol>
+    </td>
+  </tr>
+  <tr>
+    <td>*Postcondizione:* Il pacchetto di versamento è correttamente memorizzato nel sistema.</td>
+  </tr>
+</table>
 
+==Versamento asincrono SIP==
 
+<table border="1" width="1000px">
+  <tr>
+    <td>*CU4:* Versamento asincrono SIP</td>
+  </tr>
+  <tr>
+    <td>*Descrizione:* Il caso d’uso si riferisce alla procedura asincrona di versamento.</td>
+  </tr>
+  <tr>
+    <td>*Attore:* Utente</td>
+  </tr>
+  <tr>
+    <td>*Precondizione:* Il sistema mostra la schermata relativa alla procedura.</td>
+  </tr>
+  <tr>
+    <td>*Scenario principale:*
+<ol>
+<dl>
+<dt>7.1 L'utente seleziona la modalità di versamento asincrona;</dt>
+<dt>7.2 Il sistema chiede un indirizzo dove salvare il pacchetto di versamento;</dt>
+<dt>7.3 L'utente digita l'indirizzo;</dt>
+<dt>7.4 Il sistema assembla il pacchetto di versamento, ne salva una copia all'indirizzo precedentemente acquisito e invia quest'ultimo al servizio di conservazione. Il servizio di conservazione risponde con un messaggio di conferma.</dt>
+</dl>
+</ol>  
+    </td>
+  </tr>
+  <tr>
+    <td>*Scenari secondari:*
+<ol>
+<dl>
+<dt>7.4.1 Il sistema non riesce ad accedere l'indirizzo fornito dall'utente e, dopo aver mostrato un messaggio di errore, interrompe la procedura;</dt>
+<dt>7.4.1 Il sistema riceve un messaggio con un errore che verrà visualizzato all'utente;</dt>
+</dl>
+</ol>
+     </td>
+  </tr>
+  <tr>
+    <td>*Postcondizione:* Il destinatario recupera correttamente il pacchetto di versamento.</td>
+  </tr>
+</table>
 
-Scenari secondari:
-      2.1 EXTENSION “Richiede credenziali”;
-      
-      3.1 L’utente inserisce credenziali non valide;
-         3.2 Il sistema presenta un messaggio di errore;  
-Postcondizione: L’utente è abilitato alla navigazione è viene indirizzato alla home page.
+==Versamento sincrono SIP==
+
+<table border="1" width="1000px">
+  <tr>
+    <td>*CU5:* Versamento sincrono SIP</td>
+  </tr>
+  <tr>
+    <td>*Descrizione:* Il caso d’uso si riferisce alla procedura di versamento in modalità sincrona.</td>
+  </tr>
+  <tr>
+    <td>*Attore:* Utente</td>
+  </tr>
+  <tr>
+    <td>*Precondizione:* Il sistema mostra la schermata relativa alla procedura.</td>
+  </tr>
+  <tr>
+    <td>*Scenario principale:* 
+ # Il caso d'uso inizia quando l'utente decide di inviare un pacchetto di versamento all'ente prescelto.
+ # Il sistema mostra l'elenco dei pacchetti di versamento attualmente memorizzati al suo interno;
+ # L'utente seleziona il pacchetto da inviare;
+ # Il sistema chiede l'indirizzo del web service al quale inviare le ricevute;
+ # L'utente digita l'indirizzo corretto;
+ # Il sistema chiede se inviare il pacchetto in modalità sincrona o asincrona;
+ # L'utente seleziona la modalità sincrona;
+ # Il sistema invia il pacchetto di versamento e riceve un messaggio di conferma.</td>
+  </tr>
+  <tr>
+    <td>*Scenari secondari:*
+<ol>
+<dl>
+<dt>3.1 *EXTENSION* “Crea SIP”;</dt>
+<dt>7.1 *EXTENSION* “Versamento asincrono SIP”;</dt>
+</dl>
+</ol>
+    </td>
+  </tr>
+  <tr>
+    <td>*Postcondizione:* L’utente è abilitato alla navigazione è viene indirizzato alla home page.</td>
+  </tr>
+</table>
