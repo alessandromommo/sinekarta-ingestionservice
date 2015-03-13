@@ -5,6 +5,89 @@
 
 L'utente che effettua una richiesta di versamento deve esporre un web service in modo tale da essere in grado di ricevere, in maniera asincrona, dei messaggi che attestino il risultato della procedura di versamento richiesta.
 
-L'indirizzo al quale invocare l'operazione _receiveReport_ viene fornito come parametro della richiesta di versamento (vedi InterfacciaSistemaDiConservazione).
+Di seguito viene mostrato il WSDL relativo al web service in questione.
+{{{
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://servicereceive.ingestionservice.sinekarta.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ServiceIngestReceiveImplService" targetNamespace="http://servicereceive.ingestionservice.sinekarta.org/">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://servicereceive.ingestionservice.sinekarta.org/" elementFormDefault="unqualified" targetNamespace="http://servicereceive.ingestionservice.sinekarta.org/" version="1.0">
 
-TODO: da ampliare quando definita meglio l'interfaccia.
+      <xs:element name="receiveReport" type="tns:receiveReport"/>
+
+      <xs:element name="receiveReportResponse" type="tns:receiveReportResponse"/>
+
+      <xs:complexType name="receiveReport">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:depositReceipt"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="depositReceipt">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fileDetails" type="tns:fileDetails"/>
+          <xs:element minOccurs="0" name="depositData" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="depositId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receipData" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="receiptId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="fileDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fascicleId" type="xs:string"/>
+          <xs:element minOccurs="0" name="fileId" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+          <xs:element name="status" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="receiveReportResponse">
+        <xs:sequence/>
+      </xs:complexType>
+
+    </xs:schema>
+  </wsdl:types>
+
+  <wsdl:message name="receiveReportResponse">
+    <wsdl:part element="tns:receiveReportResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="receiveReport">
+    <wsdl:part element="tns:receiveReport" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+
+  <wsdl:portType name="ServiceIngestReceive">
+    <wsdl:operation name="receiveReport">
+      <wsdl:input message="tns:receiveReport" name="receiveReport">
+    </wsdl:input>
+      <wsdl:output message="tns:receiveReportResponse" name="receiveReportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="ServiceIngestReceiveImplServiceSoapBinding" type="tns:ServiceIngestReceive">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="receiveReport">
+      <soap:operation soapAction="urn:ReceiveReport" style="document"/>
+      <wsdl:input name="receiveReport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="receiveReportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="ServiceIngestReceiveImplService">
+    <wsdl:port binding="tns:ServiceIngestReceiveImplServiceSoapBinding" name="ServiceIngestReceiveImplPort">
+      <soap:address location="http://localhost:8080/sinekarta-ingestionservice-servicereceive/services/serviceingestreceive"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>
+
+}}}
+
+L'indirizzo al quale invocare l'operazione _receiveReport_ viene fornito come parametro della richiesta di versamento (vedi InterfacciaSistemaDiConservazione).
