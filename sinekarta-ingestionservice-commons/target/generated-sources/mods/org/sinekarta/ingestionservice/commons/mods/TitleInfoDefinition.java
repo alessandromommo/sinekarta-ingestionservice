@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:59 PM CET 
+// Generato il: 2015.03.13 alle 07:51:13 PM CET 
 //
 
 
@@ -40,8 +40,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://www.loc.gov/mods/v3}nonSort"/&gt;
  *       &lt;/choice&gt;
  *       &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
- *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}languageAttributeGroup"/&gt;
  *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}authorityAttributeGroup"/&gt;
+ *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}languageAttributeGroup"/&gt;
  *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}altFormatAttributeGroup"/&gt;
  *       &lt;attribute name="type"&gt;
  *         &lt;simpleType&gt;
@@ -74,11 +74,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class TitleInfoDefinition {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "subTitle", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "nonSort", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "partName", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "partNumber", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "title", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "title", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "nonSort", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "subTitle", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "partNumber", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
     })
     protected List<JAXBElement<StringPlusLanguage>> titleOrSubTitleOrPartNumber;
     @XmlAttribute(name = "type")
@@ -118,14 +118,6 @@ public class TitleInfoDefinition {
     protected String show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected String actuate;
-    @XmlAttribute(name = "lang")
-    protected String languageAttributeGroupLang;
-    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
-    protected String lang;
-    @XmlAttribute(name = "script")
-    protected String script;
-    @XmlAttribute(name = "transliteration")
-    protected String transliteration;
     @XmlAttribute(name = "authority")
     protected String authority;
     @XmlAttribute(name = "authorityURI")
@@ -134,6 +126,14 @@ public class TitleInfoDefinition {
     @XmlAttribute(name = "valueURI")
     @XmlSchemaType(name = "anyURI")
     protected String valueURI;
+    @XmlAttribute(name = "lang")
+    protected String languageAttributeGroupLang;
+    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
+    protected String lang;
+    @XmlAttribute(name = "script")
+    protected String script;
+    @XmlAttribute(name = "transliteration")
+    protected String transliteration;
     @XmlAttribute(name = "altFormat")
     @XmlSchemaType(name = "anyURI")
     protected String altFormat;
@@ -546,6 +546,78 @@ public class TitleInfoDefinition {
     }
 
     /**
+     * Recupera il valore della proprietà authority.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAuthority() {
+        return authority;
+    }
+
+    /**
+     * Imposta il valore della proprietà authority.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAuthority(String value) {
+        this.authority = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà authorityURI.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAuthorityURI() {
+        return authorityURI;
+    }
+
+    /**
+     * Imposta il valore della proprietà authorityURI.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAuthorityURI(String value) {
+        this.authorityURI = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà valueURI.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValueURI() {
+        return valueURI;
+    }
+
+    /**
+     * Imposta il valore della proprietà valueURI.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValueURI(String value) {
+        this.valueURI = value;
+    }
+
+    /**
      * Recupera il valore della proprietà languageAttributeGroupLang.
      * 
      * @return
@@ -639,78 +711,6 @@ public class TitleInfoDefinition {
      */
     public void setTransliteration(String value) {
         this.transliteration = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà authority.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAuthority() {
-        return authority;
-    }
-
-    /**
-     * Imposta il valore della proprietà authority.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAuthority(String value) {
-        this.authority = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà authorityURI.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAuthorityURI() {
-        return authorityURI;
-    }
-
-    /**
-     * Imposta il valore della proprietà authorityURI.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAuthorityURI(String value) {
-        this.authorityURI = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà valueURI.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValueURI() {
-        return valueURI;
-    }
-
-    /**
-     * Imposta il valore della proprietà valueURI.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValueURI(String value) {
-        this.valueURI = value;
     }
 
     /**

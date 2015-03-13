@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:57 PM CET 
+// Generato il: 2015.03.13 alle 07:51:10 PM CET 
 //
 
 
@@ -46,10 +46,10 @@ import org.w3c.dom.Element;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;attGroup ref="{http://www.loc.gov/METS/}FILECORE"/&gt;
- *                 &lt;attGroup ref="{http://www.loc.gov/METS/}METADATA"/&gt;
- *                 &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
  *                 &lt;attGroup ref="{http://www.loc.gov/METS/}LOCATION"/&gt;
+ *                 &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
+ *                 &lt;attGroup ref="{http://www.loc.gov/METS/}METADATA"/&gt;
+ *                 &lt;attGroup ref="{http://www.loc.gov/METS/}FILECORE"/&gt;
  *                 &lt;attribute name="ID" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
  *                 &lt;attribute name="LABEL" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *                 &lt;attribute name="XPTR" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
@@ -75,8 +75,8 @@ import org.w3c.dom.Element;
  *                     &lt;/complexType&gt;
  *                   &lt;/element&gt;
  *                 &lt;/choice&gt;
- *                 &lt;attGroup ref="{http://www.loc.gov/METS/}METADATA"/&gt;
  *                 &lt;attGroup ref="{http://www.loc.gov/METS/}FILECORE"/&gt;
+ *                 &lt;attGroup ref="{http://www.loc.gov/METS/}METADATA"/&gt;
  *                 &lt;attribute name="ID" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
  *                 &lt;attribute name="LABEL" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *               &lt;/restriction&gt;
@@ -325,10 +325,10 @@ public class MdSecType {
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;attGroup ref="{http://www.loc.gov/METS/}FILECORE"/&gt;
-     *       &lt;attGroup ref="{http://www.loc.gov/METS/}METADATA"/&gt;
-     *       &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
      *       &lt;attGroup ref="{http://www.loc.gov/METS/}LOCATION"/&gt;
+     *       &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
+     *       &lt;attGroup ref="{http://www.loc.gov/METS/}METADATA"/&gt;
+     *       &lt;attGroup ref="{http://www.loc.gov/METS/}FILECORE"/&gt;
      *       &lt;attribute name="ID" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
      *       &lt;attribute name="LABEL" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
      *       &lt;attribute name="XPTR" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
@@ -352,23 +352,10 @@ public class MdSecType {
         protected String mdRefLabel;
         @XmlAttribute(name = "XPTR")
         protected String xptr;
-        @XmlAttribute(name = "MIMETYPE")
-        protected String mimetype;
-        @XmlAttribute(name = "SIZE")
-        protected Long size;
-        @XmlAttribute(name = "CREATED")
-        @XmlSchemaType(name = "dateTime")
-        protected XMLGregorianCalendar created;
-        @XmlAttribute(name = "CHECKSUM")
-        protected String checksum;
-        @XmlAttribute(name = "CHECKSUMTYPE")
-        protected String checksumtype;
-        @XmlAttribute(name = "MDTYPE", required = true)
-        protected String mdtype;
-        @XmlAttribute(name = "OTHERMDTYPE")
-        protected String othermdtype;
-        @XmlAttribute(name = "MDTYPEVERSION")
-        protected String mdtypeversion;
+        @XmlAttribute(name = "LOCTYPE", required = true)
+        protected String loctype;
+        @XmlAttribute(name = "OTHERLOCTYPE")
+        protected String otherloctype;
         @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
         protected String type;
         @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
@@ -384,10 +371,23 @@ public class MdSecType {
         protected String show;
         @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
         protected String actuate;
-        @XmlAttribute(name = "LOCTYPE", required = true)
-        protected String loctype;
-        @XmlAttribute(name = "OTHERLOCTYPE")
-        protected String otherloctype;
+        @XmlAttribute(name = "MDTYPE", required = true)
+        protected String mdtype;
+        @XmlAttribute(name = "OTHERMDTYPE")
+        protected String othermdtype;
+        @XmlAttribute(name = "MDTYPEVERSION")
+        protected String mdtypeversion;
+        @XmlAttribute(name = "MIMETYPE")
+        protected String mimetype;
+        @XmlAttribute(name = "SIZE")
+        protected Long size;
+        @XmlAttribute(name = "CREATED")
+        @XmlSchemaType(name = "dateTime")
+        protected XMLGregorianCalendar created;
+        @XmlAttribute(name = "CHECKSUM")
+        protected String checksum;
+        @XmlAttribute(name = "CHECKSUMTYPE")
+        protected String checksumtype;
 
         /**
          * Recupera il valore della proprietà id.
@@ -462,195 +462,51 @@ public class MdSecType {
         }
 
         /**
-         * Recupera il valore della proprietà mimetype.
+         * Recupera il valore della proprietà loctype.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getMIMETYPE() {
-            return mimetype;
+        public String getLOCTYPE() {
+            return loctype;
         }
 
         /**
-         * Imposta il valore della proprietà mimetype.
+         * Imposta il valore della proprietà loctype.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setMIMETYPE(String value) {
-            this.mimetype = value;
+        public void setLOCTYPE(String value) {
+            this.loctype = value;
         }
 
         /**
-         * Recupera il valore della proprietà size.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Long }
-         *     
-         */
-        public Long getSIZE() {
-            return size;
-        }
-
-        /**
-         * Imposta il valore della proprietà size.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Long }
-         *     
-         */
-        public void setSIZE(Long value) {
-            this.size = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà created.
-         * 
-         * @return
-         *     possible object is
-         *     {@link XMLGregorianCalendar }
-         *     
-         */
-        public XMLGregorianCalendar getCREATED() {
-            return created;
-        }
-
-        /**
-         * Imposta il valore della proprietà created.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link XMLGregorianCalendar }
-         *     
-         */
-        public void setCREATED(XMLGregorianCalendar value) {
-            this.created = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà checksum.
+         * Recupera il valore della proprietà otherloctype.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getCHECKSUM() {
-            return checksum;
+        public String getOTHERLOCTYPE() {
+            return otherloctype;
         }
 
         /**
-         * Imposta il valore della proprietà checksum.
+         * Imposta il valore della proprietà otherloctype.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setCHECKSUM(String value) {
-            this.checksum = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà checksumtype.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getCHECKSUMTYPE() {
-            return checksumtype;
-        }
-
-        /**
-         * Imposta il valore della proprietà checksumtype.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setCHECKSUMTYPE(String value) {
-            this.checksumtype = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà mdtype.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getMDTYPE() {
-            return mdtype;
-        }
-
-        /**
-         * Imposta il valore della proprietà mdtype.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setMDTYPE(String value) {
-            this.mdtype = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà othermdtype.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getOTHERMDTYPE() {
-            return othermdtype;
-        }
-
-        /**
-         * Imposta il valore della proprietà othermdtype.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setOTHERMDTYPE(String value) {
-            this.othermdtype = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà mdtypeversion.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getMDTYPEVERSION() {
-            return mdtypeversion;
-        }
-
-        /**
-         * Imposta il valore della proprietà mdtypeversion.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setMDTYPEVERSION(String value) {
-            this.mdtypeversion = value;
+        public void setOTHERLOCTYPE(String value) {
+            this.otherloctype = value;
         }
 
         /**
@@ -826,219 +682,6 @@ public class MdSecType {
         }
 
         /**
-         * Recupera il valore della proprietà loctype.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getLOCTYPE() {
-            return loctype;
-        }
-
-        /**
-         * Imposta il valore della proprietà loctype.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setLOCTYPE(String value) {
-            this.loctype = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà otherloctype.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getOTHERLOCTYPE() {
-            return otherloctype;
-        }
-
-        /**
-         * Imposta il valore della proprietà otherloctype.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setOTHERLOCTYPE(String value) {
-            this.otherloctype = value;
-        }
-
-    }
-
-
-    /**
-     * <p>Classe Java per anonymous complex type.
-     * 
-     * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;choice&gt;
-     *         &lt;element name="binData" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
-     *         &lt;element name="xmlData" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;any processContents='lax' maxOccurs="unbounded"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *       &lt;/choice&gt;
-     *       &lt;attGroup ref="{http://www.loc.gov/METS/}METADATA"/&gt;
-     *       &lt;attGroup ref="{http://www.loc.gov/METS/}FILECORE"/&gt;
-     *       &lt;attribute name="ID" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
-     *       &lt;attribute name="LABEL" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "binData",
-        "xmlData"
-    })
-    public static class MdWrap {
-
-        protected byte[] binData;
-        protected MdSecType.MdWrap.XmlData xmlData;
-        @XmlAttribute(name = "ID")
-        @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-        @XmlID
-        @XmlSchemaType(name = "ID")
-        protected String id;
-        @XmlAttribute(name = "LABEL")
-        protected String mdWrapLabel;
-        @XmlAttribute(name = "MDTYPE", required = true)
-        protected String mdtype;
-        @XmlAttribute(name = "OTHERMDTYPE")
-        protected String othermdtype;
-        @XmlAttribute(name = "MDTYPEVERSION")
-        protected String mdtypeversion;
-        @XmlAttribute(name = "MIMETYPE")
-        protected String mimetype;
-        @XmlAttribute(name = "SIZE")
-        protected Long size;
-        @XmlAttribute(name = "CREATED")
-        @XmlSchemaType(name = "dateTime")
-        protected XMLGregorianCalendar created;
-        @XmlAttribute(name = "CHECKSUM")
-        protected String checksum;
-        @XmlAttribute(name = "CHECKSUMTYPE")
-        protected String checksumtype;
-
-        /**
-         * Recupera il valore della proprietà binData.
-         * 
-         * @return
-         *     possible object is
-         *     byte[]
-         */
-        public byte[] getBinData() {
-            return binData;
-        }
-
-        /**
-         * Imposta il valore della proprietà binData.
-         * 
-         * @param value
-         *     allowed object is
-         *     byte[]
-         */
-        public void setBinData(byte[] value) {
-            this.binData = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà xmlData.
-         * 
-         * @return
-         *     possible object is
-         *     {@link MdSecType.MdWrap.XmlData }
-         *     
-         */
-        public MdSecType.MdWrap.XmlData getXmlData() {
-            return xmlData;
-        }
-
-        /**
-         * Imposta il valore della proprietà xmlData.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link MdSecType.MdWrap.XmlData }
-         *     
-         */
-        public void setXmlData(MdSecType.MdWrap.XmlData value) {
-            this.xmlData = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà id.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getID() {
-            return id;
-        }
-
-        /**
-         * Imposta il valore della proprietà id.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setID(String value) {
-            this.id = value;
-        }
-
-        /**
-         * Recupera il valore della proprietà mdWrapLabel.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getMdWrapLabel() {
-            return mdWrapLabel;
-        }
-
-        /**
-         * Imposta il valore della proprietà mdWrapLabel.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setMdWrapLabel(String value) {
-            this.mdWrapLabel = value;
-        }
-
-        /**
          * Recupera il valore della proprietà mdtype.
          * 
          * @return
@@ -1230,6 +873,363 @@ public class MdSecType {
             this.checksumtype = value;
         }
 
+    }
+
+
+    /**
+     * <p>Classe Java per anonymous complex type.
+     * 
+     * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
+     * 
+     * <pre>
+     * &lt;complexType&gt;
+     *   &lt;complexContent&gt;
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *       &lt;choice&gt;
+     *         &lt;element name="binData" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
+     *         &lt;element name="xmlData" minOccurs="0"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;complexContent&gt;
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                 &lt;sequence&gt;
+     *                   &lt;any processContents='lax' maxOccurs="unbounded"/&gt;
+     *                 &lt;/sequence&gt;
+     *               &lt;/restriction&gt;
+     *             &lt;/complexContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *       &lt;/choice&gt;
+     *       &lt;attGroup ref="{http://www.loc.gov/METS/}FILECORE"/&gt;
+     *       &lt;attGroup ref="{http://www.loc.gov/METS/}METADATA"/&gt;
+     *       &lt;attribute name="ID" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
+     *       &lt;attribute name="LABEL" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *     &lt;/restriction&gt;
+     *   &lt;/complexContent&gt;
+     * &lt;/complexType&gt;
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "binData",
+        "xmlData"
+    })
+    public static class MdWrap {
+
+        protected byte[] binData;
+        protected MdSecType.MdWrap.XmlData xmlData;
+        @XmlAttribute(name = "ID")
+        @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+        @XmlID
+        @XmlSchemaType(name = "ID")
+        protected String id;
+        @XmlAttribute(name = "LABEL")
+        protected String mdWrapLabel;
+        @XmlAttribute(name = "MIMETYPE")
+        protected String mimetype;
+        @XmlAttribute(name = "SIZE")
+        protected Long size;
+        @XmlAttribute(name = "CREATED")
+        @XmlSchemaType(name = "dateTime")
+        protected XMLGregorianCalendar created;
+        @XmlAttribute(name = "CHECKSUM")
+        protected String checksum;
+        @XmlAttribute(name = "CHECKSUMTYPE")
+        protected String checksumtype;
+        @XmlAttribute(name = "MDTYPE", required = true)
+        protected String mdtype;
+        @XmlAttribute(name = "OTHERMDTYPE")
+        protected String othermdtype;
+        @XmlAttribute(name = "MDTYPEVERSION")
+        protected String mdtypeversion;
+
+        /**
+         * Recupera il valore della proprietà binData.
+         * 
+         * @return
+         *     possible object is
+         *     byte[]
+         */
+        public byte[] getBinData() {
+            return binData;
+        }
+
+        /**
+         * Imposta il valore della proprietà binData.
+         * 
+         * @param value
+         *     allowed object is
+         *     byte[]
+         */
+        public void setBinData(byte[] value) {
+            this.binData = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà xmlData.
+         * 
+         * @return
+         *     possible object is
+         *     {@link MdSecType.MdWrap.XmlData }
+         *     
+         */
+        public MdSecType.MdWrap.XmlData getXmlData() {
+            return xmlData;
+        }
+
+        /**
+         * Imposta il valore della proprietà xmlData.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link MdSecType.MdWrap.XmlData }
+         *     
+         */
+        public void setXmlData(MdSecType.MdWrap.XmlData value) {
+            this.xmlData = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà id.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getID() {
+            return id;
+        }
+
+        /**
+         * Imposta il valore della proprietà id.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setID(String value) {
+            this.id = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà mdWrapLabel.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getMdWrapLabel() {
+            return mdWrapLabel;
+        }
+
+        /**
+         * Imposta il valore della proprietà mdWrapLabel.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setMdWrapLabel(String value) {
+            this.mdWrapLabel = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà mimetype.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getMIMETYPE() {
+            return mimetype;
+        }
+
+        /**
+         * Imposta il valore della proprietà mimetype.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setMIMETYPE(String value) {
+            this.mimetype = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà size.
+         * 
+         * @return
+         *     possible object is
+         *     {@link Long }
+         *     
+         */
+        public Long getSIZE() {
+            return size;
+        }
+
+        /**
+         * Imposta il valore della proprietà size.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Long }
+         *     
+         */
+        public void setSIZE(Long value) {
+            this.size = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà created.
+         * 
+         * @return
+         *     possible object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public XMLGregorianCalendar getCREATED() {
+            return created;
+        }
+
+        /**
+         * Imposta il valore della proprietà created.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public void setCREATED(XMLGregorianCalendar value) {
+            this.created = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà checksum.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getCHECKSUM() {
+            return checksum;
+        }
+
+        /**
+         * Imposta il valore della proprietà checksum.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setCHECKSUM(String value) {
+            this.checksum = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà checksumtype.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getCHECKSUMTYPE() {
+            return checksumtype;
+        }
+
+        /**
+         * Imposta il valore della proprietà checksumtype.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setCHECKSUMTYPE(String value) {
+            this.checksumtype = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà mdtype.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getMDTYPE() {
+            return mdtype;
+        }
+
+        /**
+         * Imposta il valore della proprietà mdtype.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setMDTYPE(String value) {
+            this.mdtype = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà othermdtype.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getOTHERMDTYPE() {
+            return othermdtype;
+        }
+
+        /**
+         * Imposta il valore della proprietà othermdtype.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setOTHERMDTYPE(String value) {
+            this.othermdtype = value;
+        }
+
+        /**
+         * Recupera il valore della proprietà mdtypeversion.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getMDTYPEVERSION() {
+            return mdtypeversion;
+        }
+
+        /**
+         * Imposta il valore della proprietà mdtypeversion.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setMDTYPEVERSION(String value) {
+            this.mdtypeversion = value;
+        }
+
 
         /**
          * <p>Classe Java per anonymous complex type.
@@ -1277,8 +1277,8 @@ public class MdSecType {
              * 
              * <p>
              * Objects of the following type(s) are allowed in the list
-             * {@link Element }
              * {@link Object }
+             * {@link Element }
              * 
              * 
              */

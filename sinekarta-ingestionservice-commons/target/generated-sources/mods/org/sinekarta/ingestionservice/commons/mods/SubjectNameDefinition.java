@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:59 PM CET 
+// Generato il: 2015.03.13 alle 07:51:13 PM CET 
 //
 
 
@@ -39,9 +39,9 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://www.loc.gov/mods/v3}role"/&gt;
  *         &lt;element ref="{http://www.loc.gov/mods/v3}description"/&gt;
  *       &lt;/choice&gt;
- *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}authorityAttributeGroup"/&gt;
  *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}languageAttributeGroup"/&gt;
  *       &lt;attGroup ref="{http://www.w3.org/1999/xlink}simpleLink"/&gt;
+ *       &lt;attGroup ref="{http://www.loc.gov/mods/v3}authorityAttributeGroup"/&gt;
  *       &lt;attribute name="type"&gt;
  *         &lt;simpleType&gt;
  *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
@@ -68,11 +68,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class SubjectNameDefinition {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "displayForm", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "description", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "role", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "displayForm", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "affiliation", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "role", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "affiliation", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
     })
     protected List<JAXBElement<?>> namePartOrDisplayFormOrAffiliation;
     @XmlAttribute(name = "type")
@@ -84,14 +84,6 @@ public class SubjectNameDefinition {
     protected String id;
     @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
-    @XmlAttribute(name = "authority")
-    protected String authority;
-    @XmlAttribute(name = "authorityURI")
-    @XmlSchemaType(name = "anyURI")
-    protected String authorityURI;
-    @XmlAttribute(name = "valueURI")
-    @XmlSchemaType(name = "anyURI")
-    protected String valueURI;
     @XmlAttribute(name = "lang")
     protected String languageAttributeGroupLang;
     @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
@@ -115,6 +107,14 @@ public class SubjectNameDefinition {
     protected String show;
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
     protected String actuate;
+    @XmlAttribute(name = "authority")
+    protected String authority;
+    @XmlAttribute(name = "authorityURI")
+    @XmlSchemaType(name = "anyURI")
+    protected String authorityURI;
+    @XmlAttribute(name = "valueURI")
+    @XmlSchemaType(name = "anyURI")
+    protected String valueURI;
 
     /**
      * Gets the value of the namePartOrDisplayFormOrAffiliation property.
@@ -136,9 +136,9 @@ public class SubjectNameDefinition {
      * Objects of the following type(s) are allowed in the list
      * {@link JAXBElement }{@code <}{@link StringPlusLanguage }{@code >}
      * {@link JAXBElement }{@code <}{@link StringPlusLanguage }{@code >}
-     * {@link JAXBElement }{@code <}{@link StringPlusLanguage }{@code >}
      * {@link JAXBElement }{@code <}{@link RoleDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link NamePartDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link StringPlusLanguage }{@code >}
      * 
      * 
      */
@@ -219,78 +219,6 @@ public class SubjectNameDefinition {
      */
     public void setDisplayLabel(String value) {
         this.displayLabel = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà authority.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAuthority() {
-        return authority;
-    }
-
-    /**
-     * Imposta il valore della proprietà authority.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAuthority(String value) {
-        this.authority = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà authorityURI.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAuthorityURI() {
-        return authorityURI;
-    }
-
-    /**
-     * Imposta il valore della proprietà authorityURI.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAuthorityURI(String value) {
-        this.authorityURI = value;
-    }
-
-    /**
-     * Recupera il valore della proprietà valueURI.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValueURI() {
-        return valueURI;
-    }
-
-    /**
-     * Imposta il valore della proprietà valueURI.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValueURI(String value) {
-        this.valueURI = value;
     }
 
     /**
@@ -559,6 +487,78 @@ public class SubjectNameDefinition {
      */
     public void setActuate(String value) {
         this.actuate = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà authority.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAuthority() {
+        return authority;
+    }
+
+    /**
+     * Imposta il valore della proprietà authority.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAuthority(String value) {
+        this.authority = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà authorityURI.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAuthorityURI() {
+        return authorityURI;
+    }
+
+    /**
+     * Imposta il valore della proprietà authorityURI.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAuthorityURI(String value) {
+        this.authorityURI = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà valueURI.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValueURI() {
+        return valueURI;
+    }
+
+    /**
+     * Imposta il valore della proprietà valueURI.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValueURI(String value) {
+        this.valueURI = value;
     }
 
 }

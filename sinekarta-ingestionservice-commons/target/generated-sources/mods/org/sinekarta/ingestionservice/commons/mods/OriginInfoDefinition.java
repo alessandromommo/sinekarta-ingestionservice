@@ -2,7 +2,7 @@
 // Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.2.11 
 // Vedere <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
-// Generato il: 2015.03.06 alle 07:09:59 PM CET 
+// Generato il: 2015.03.13 alle 07:51:13 PM CET 
 //
 
 
@@ -60,18 +60,18 @@ import javax.xml.bind.annotation.XmlType;
 public class OriginInfoDefinition {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "edition", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "dateIssued", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "dateValid", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "copyrightDate", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "dateOther", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "dateModified", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "dateCaptured", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "edition", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "issuance", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "dateOther", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "copyrightDate", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "frequency", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "place", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "dateIssued", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "dateCreated", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "publisher", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "place", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "dateValid", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "dateModified", namespace = "http://www.loc.gov/mods/v3", type = JAXBElement.class, required = false)
     })
     protected List<JAXBElement<?>> placeOrPublisherOrDateIssued;
     @XmlAttribute(name = "displayLabel")
@@ -107,17 +107,17 @@ public class OriginInfoDefinition {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
+     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusSupplied }{@code >}
-     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
-     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
-     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link IssuanceDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link DateOtherDefinition }{@code >}
-     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
-     * {@link JAXBElement }{@code <}{@link IssuanceDefinition }{@code >}
-     * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
      * {@link JAXBElement }{@code <}{@link PlaceDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusAuthority }{@code >}
+     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link StringPlusLanguagePlusSupplied }{@code >}
+     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
+     * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
      * {@link JAXBElement }{@code <}{@link DateDefinition }{@code >}
      * 
      * 
