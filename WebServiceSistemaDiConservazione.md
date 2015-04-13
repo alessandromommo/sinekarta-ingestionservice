@@ -1,0 +1,674 @@
+# WSDL sistema di conservazione #
+
+Di seguito il WSDL con i servizi messi a disposizione dal sistema di conservazione.
+
+Il file contiene anche le definizioni dei tipi utilizzati per l'invocazione. Fra questi, l'elemento `<mets>` definisce il formato del pacchetto di versamento secondo lo standard [METS versione 1.10](http://www.loc.gov/standards/mets/mets.xsd) il cui DTO, utilizzato come parametro dell'operazione _transmitSip_ (vedi InterfacciaSistemaDiConservazione), è contenuto nel package `org.sinekarta.ingestionservice.mets` del modulo `sinekarta-ingestionservice-commons` (vedi OrganizzazioneSorgenti).
+
+```
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.service.sinekarta.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ServiceIngestTransmitImplService" targetNamespace="http://ws.service.sinekarta.org/">
+ <wsdl:types>
+
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  targetNamespace="http://www.w3.org/1999/xlink" version="1.0">
+      <xs:attribute name="actuate" type="xs:string"/>
+      <xs:attribute name="arcrole" type="xs:string"/>
+      <xs:attribute name="href" type="xs:anyURI"/>
+      <xs:attribute name="label" type="xs:string"/>
+      <xs:attribute name="role" type="xs:string"/>
+      <xs:attribute name="show" type="xs:string"/>
+      <xs:attribute name="title" type="xs:string"/>
+      <xs:attribute name="type" type="xs:string"/>
+      <xs:attribute name="to" type="xs:string"/>
+      <xs:attribute name="from" type="xs:string"/>
+   </xs:schema>
+
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.loc.gov/METS/" xmlns:ns1="http://www.w3.org/1999/xlink" elementFormDefault="qualified" targetNamespace="http://www.loc.gov/METS/" version="1.0">
+
+      <xs:import namespace="http://www.w3.org/1999/xlink"/>
+
+      <xs:element name="mets">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="tns:metsType">
+              <xs:sequence/>
+              <xs:anyAttribute namespace="##other" processContents="skip"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+
+   <xs:complexType name="metsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="metsHdr">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="agent" nillable="true">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="name" type="xs:string"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="note" nillable="true" type="xs:string"/>
+                </xs:sequence>
+                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ROLE" type="xs:string" use="required"/>
+                <xs:attribute name="OTHERROLE" type="xs:string"/>
+                <xs:attribute name="TYPE" type="xs:string"/>
+                <xs:attribute name="OTHERTYPE" type="xs:string"/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="altRecordID" nillable="true">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:attribute name="ID" type="xs:ID"/>
+                    <xs:attribute name="TYPE" type="xs:string"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="metsDocumentID">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:attribute name="ID" type="xs:ID"/>
+                    <xs:attribute name="TYPE" type="xs:string"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="ADMID">
+            <xs:simpleType>
+              <xs:list itemType="xs:IDREF"/>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="CREATEDATE" type="xs:dateTime"/>
+          <xs:attribute name="LASTMODDATE" type="xs:dateTime"/>
+          <xs:attribute name="RECORDSTATUS" type="xs:string"/>
+          <xs:anyAttribute namespace="##other" processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="dmdSec" nillable="true" type="tns:mdSecType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="amdSec" nillable="true" type="tns:amdSecType"/>
+      <xs:element minOccurs="0" name="fileSec">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="fileGrp">
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension base="tns:fileGrpType">
+                    <xs:sequence/>
+                    <xs:anyAttribute namespace="##other" processContents="skip"/>
+                  </xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:anyAttribute namespace="##other" processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="structMap" type="tns:structMapType"/>
+      <xs:element minOccurs="0" name="structLink">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="tns:structLinkType">
+              <xs:sequence/>
+              <xs:anyAttribute namespace="##other" processContents="skip"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="behaviorSec" nillable="true" type="tns:behaviorSecType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="OBJID" type="xs:string"/>
+    <xs:attribute name="LABEL" type="xs:string"/>
+    <xs:attribute name="TYPE" type="xs:string"/>
+    <xs:attribute name="PROFILE" type="xs:string"/>
+    <xs:anyAttribute namespace="##other" processContents="skip"/>
+   </xs:complexType>
+
+   <xs:complexType name="mdSecType">
+    <xs:all>
+      <xs:element minOccurs="0" name="mdRef">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="LABEL" type="xs:string"/>
+          <xs:attribute name="XPTR" type="xs:string"/>
+          <xs:attribute ref="ns1:type"/>
+          <xs:attribute ref="ns1:href"/>
+          <xs:attribute ref="ns1:role"/>
+          <xs:attribute ref="ns1:arcrole"/>
+          <xs:attribute ref="ns1:title"/>
+          <xs:attribute ref="ns1:show"/>
+          <xs:attribute ref="ns1:actuate"/>
+          <xs:attribute name="MDTYPE" type="xs:string" use="required"/>
+          <xs:attribute name="OTHERMDTYPE" type="xs:string"/>
+          <xs:attribute name="MDTYPEVERSION" type="xs:string"/>
+          <xs:attribute name="MIMETYPE" type="xs:string"/>
+          <xs:attribute name="SIZE" type="xs:long"/>
+          <xs:attribute name="CREATED" type="xs:dateTime"/>
+          <xs:attribute name="CHECKSUM" type="xs:string"/>
+          <xs:attribute name="CHECKSUMTYPE" type="xs:string"/>
+          <xs:attribute name="LOCTYPE" type="xs:string" use="required"/>
+          <xs:attribute name="OTHERLOCTYPE" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="mdWrap">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="binData" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" name="xmlData">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="LABEL" type="xs:string"/>
+          <xs:attribute name="MIMETYPE" type="xs:string"/>
+          <xs:attribute name="SIZE" type="xs:long"/>
+          <xs:attribute name="CREATED" type="xs:dateTime"/>
+          <xs:attribute name="CHECKSUM" type="xs:string"/>
+          <xs:attribute name="CHECKSUMTYPE" type="xs:string"/>
+          <xs:attribute name="MDTYPE" type="xs:string" use="required"/>
+          <xs:attribute name="OTHERMDTYPE" type="xs:string"/>
+          <xs:attribute name="MDTYPEVERSION" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
+    <xs:attribute name="GROUPID" type="xs:string"/>
+    <xs:attribute name="ADMID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CREATED" type="xs:dateTime"/>
+    <xs:attribute name="STATUS" type="xs:string"/>
+    <xs:anyAttribute namespace="##other" processContents="skip"/>
+   </xs:complexType>
+
+   <xs:complexType name="divType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mptr" nillable="true">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="CONTENTIDS">
+            <xs:simpleType>
+              <xs:list itemType="xs:string"/>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute ref="ns1:type"/>
+          <xs:attribute ref="ns1:href"/>
+          <xs:attribute ref="ns1:role"/>
+          <xs:attribute ref="ns1:arcrole"/>
+          <xs:attribute ref="ns1:title"/>
+          <xs:attribute ref="ns1:show"/>
+          <xs:attribute ref="ns1:actuate"/>
+          <xs:attribute name="LOCTYPE" type="xs:string" use="required"/>
+          <xs:attribute name="OTHERLOCTYPE" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="fptr" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="par" type="tns:parType"/>
+            <xs:element minOccurs="0" name="seq" type="tns:seqType"/>
+            <xs:element minOccurs="0" name="area" type="tns:areaType"/>
+          </xs:sequence>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="FILEID" type="xs:IDREF"/>
+          <xs:attribute name="CONTENTIDS">
+            <xs:simpleType>
+              <xs:list itemType="xs:string"/>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:anyAttribute namespace="##other" processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="div" nillable="true" type="tns:divType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ORDER" type="xs:integer"/>
+    <xs:attribute name="ORDERLABEL" type="xs:string"/>
+    <xs:attribute name="LABEL" type="xs:string"/>
+    <xs:attribute name="DMDID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ADMID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TYPE" type="xs:string"/>
+    <xs:attribute name="CONTENTIDS">
+      <xs:simpleType>
+        <xs:list itemType="xs:string"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute ref="ns1:label"/>
+   </xs:complexType>
+
+   <xs:complexType name="parType">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="area" type="tns:areaType"/>
+        <xs:element name="seq" type="tns:seqType"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+   </xs:complexType>
+
+   <xs:complexType name="areaType">
+    <xs:sequence/>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="FILEID" type="xs:IDREF" use="required"/>
+    <xs:attribute name="SHAPE" type="xs:string"/>
+    <xs:attribute name="COORDS" type="xs:string"/>
+    <xs:attribute name="BEGIN" type="xs:string"/>
+    <xs:attribute name="END" type="xs:string"/>
+    <xs:attribute name="BETYPE" type="xs:string"/>
+    <xs:attribute name="EXTENT" type="xs:string"/>
+    <xs:attribute name="EXTTYPE" type="xs:string"/>
+    <xs:attribute name="ADMID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CONTENTIDS">
+      <xs:simpleType>
+        <xs:list itemType="xs:string"/>
+      </xs:simpleType>
+    </xs:attribute>
+   </xs:complexType>
+
+   <xs:complexType name="seqType">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="area" type="tns:areaType"/>
+        <xs:element name="par" type="tns:parType"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+   </xs:complexType>
+
+   <xs:complexType name="fileType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="FLocat">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="USE" type="xs:string"/>
+          <xs:attribute ref="ns1:type"/>
+          <xs:attribute ref="ns1:href"/>
+          <xs:attribute ref="ns1:role"/>
+          <xs:attribute ref="ns1:arcrole"/>
+          <xs:attribute ref="ns1:title"/>
+          <xs:attribute ref="ns1:show"/>
+          <xs:attribute ref="ns1:actuate"/>
+          <xs:attribute name="LOCTYPE" type="xs:string" use="required"/>
+          <xs:attribute name="OTHERLOCTYPE" type="xs:string"/>
+          <xs:anyAttribute namespace="##other" processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="FContent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="binData" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" name="xmlData">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="USE" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="stream" nillable="true">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="streamType" type="xs:string"/>
+          <xs:attribute name="OWNERID" type="xs:string"/>
+          <xs:attribute name="ADMID">
+            <xs:simpleType>
+              <xs:list itemType="xs:IDREF"/>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="DMDID">
+            <xs:simpleType>
+              <xs:list itemType="xs:IDREF"/>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="BEGIN" type="xs:string"/>
+          <xs:attribute name="END" type="xs:string"/>
+          <xs:attribute name="BETYPE" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="transformFile" nillable="true">
+        <xs:complexType>
+          <xs:sequence/>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="TRANSFORMTYPE" type="xs:string" use="required"/>
+          <xs:attribute name="TRANSFORMALGORITHM" type="xs:string" use="required"/>
+          <xs:attribute name="TRANSFORMKEY" type="xs:string"/>
+          <xs:attribute name="TRANSFORMBEHAVIOR" type="xs:IDREF"/>
+          <xs:attribute name="TRANSFORMORDER" type="xs:positiveInteger" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="file" nillable="true" type="tns:fileType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
+    <xs:attribute name="SEQ" type="xs:int"/>
+    <xs:attribute name="OWNERID" type="xs:string"/>
+    <xs:attribute name="ADMID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DMDID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GROUPID" type="xs:string"/>
+    <xs:attribute name="USE" type="xs:string"/>
+    <xs:attribute name="BEGIN" type="xs:string"/>
+    <xs:attribute name="END" type="xs:string"/>
+    <xs:attribute name="BETYPE" type="xs:string"/>
+    <xs:attribute name="MIMETYPE" type="xs:string"/>
+    <xs:attribute name="SIZE" type="xs:long"/>
+    <xs:attribute name="CREATED" type="xs:dateTime"/>
+    <xs:attribute name="CHECKSUM" type="xs:string"/>
+    <xs:attribute name="CHECKSUMTYPE" type="xs:string"/>
+   </xs:complexType>
+
+   <xs:complexType name="structLinkType">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="smLink">
+          <xs:complexType>
+            <xs:sequence/>
+            <xs:attribute name="ID" type="xs:ID"/>
+            <xs:attribute ref="ns1:arcrole"/>
+            <xs:attribute ref="ns1:title"/>
+            <xs:attribute ref="ns1:show"/>
+            <xs:attribute ref="ns1:actuate"/>
+            <xs:attribute ref="ns1:to" use="required"/>
+            <xs:attribute ref="ns1:from" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="smLinkGrp">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="smLocatorLink">
+                <xs:complexType>
+                  <xs:sequence/>
+                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute ref="ns1:type"/>
+                  <xs:attribute ref="ns1:href" use="required"/>
+                  <xs:attribute ref="ns1:role"/>
+                  <xs:attribute ref="ns1:title"/>
+                  <xs:attribute ref="ns1:label"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="smArcLink">
+                <xs:complexType>
+                  <xs:sequence/>
+                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ARCTYPE" type="xs:string"/>
+                  <xs:attribute name="ADMID">
+                    <xs:simpleType>
+                      <xs:list itemType="xs:IDREF"/>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute ref="ns1:type"/>
+                  <xs:attribute ref="ns1:arcrole"/>
+                  <xs:attribute ref="ns1:title"/>
+                  <xs:attribute ref="ns1:show"/>
+                  <xs:attribute ref="ns1:actuate"/>
+                  <xs:attribute ref="ns1:from"/>
+                  <xs:attribute ref="ns1:to"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="ID" type="xs:ID"/>
+            <xs:attribute name="ARCLINKORDER" type="xs:string"/>
+            <xs:attribute ref="ns1:type"/>
+            <xs:attribute ref="ns1:role"/>
+            <xs:attribute ref="ns1:title"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:anyAttribute namespace="##other" processContents="skip"/>
+   </xs:complexType>
+
+   <xs:complexType name="fileGrpType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="fileGrp" nillable="true" type="tns:fileGrpType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="file" nillable="true" type="tns:fileType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="VERSDATE" type="xs:dateTime"/>
+    <xs:attribute name="ADMID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="USE" type="xs:string"/>
+    <xs:anyAttribute namespace="##other" processContents="skip"/>
+   </xs:complexType>
+
+   <xs:complexType name="amdSecType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="techMD" nillable="true" type="tns:mdSecType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="rightsMD" nillable="true" type="tns:mdSecType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="sourceMD" nillable="true" type="tns:mdSecType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="digiprovMD" nillable="true" type="tns:mdSecType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:anyAttribute namespace="##other" processContents="skip"/>
+   </xs:complexType>
+
+   <xs:complexType name="structMapType">
+    <xs:sequence>
+      <xs:element name="div" type="tns:divType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="TYPE" type="xs:string"/>
+    <xs:attribute name="LABEL" type="xs:string"/>
+    <xs:anyAttribute namespace="##other" processContents="skip"/>
+   </xs:complexType>
+
+   <xs:complexType name="behaviorSecType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="behaviorSec" nillable="true" type="tns:behaviorSecType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="behavior" nillable="true" type="tns:behaviorType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="CREATED" type="xs:dateTime"/>
+    <xs:attribute name="LABEL" type="xs:string"/>
+    <xs:anyAttribute namespace="##other" processContents="skip"/>
+   </xs:complexType>
+
+   <xs:complexType name="behaviorType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="interfaceDef" type="tns:objectType"/>
+      <xs:element name="mechanism" type="tns:objectType"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="STRUCTID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BTYPE" type="xs:string"/>
+    <xs:attribute name="CREATED" type="xs:dateTime"/>
+    <xs:attribute name="LABEL" type="xs:string"/>
+    <xs:attribute name="GROUPID" type="xs:string"/>
+    <xs:attribute name="ADMID">
+      <xs:simpleType>
+        <xs:list itemType="xs:IDREF"/>
+      </xs:simpleType>
+    </xs:attribute>
+   </xs:complexType>
+
+   <xs:complexType name="objectType">
+    <xs:sequence/>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="LABEL" type="xs:string"/>
+    <xs:attribute ref="ns1:type"/>
+    <xs:attribute ref="ns1:href"/>
+    <xs:attribute ref="ns1:role"/>
+    <xs:attribute ref="ns1:arcrole"/>
+    <xs:attribute ref="ns1:title"/>
+    <xs:attribute ref="ns1:show"/>
+    <xs:attribute ref="ns1:actuate"/>
+    <xs:attribute name="LOCTYPE" type="xs:string" use="required"/>
+    <xs:attribute name="OTHERLOCTYPE" type="xs:string"/>
+   </xs:complexType>
+ </xs:schema>
+
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.service.sinekarta.org/" xmlns:ns1="http://www.loc.gov/METS/" targetNamespace="http://ws.service.sinekarta.org/" version="1.0">
+
+  <xs:import namespace="http://www.loc.gov/METS/"/>
+
+  <xs:element name="transmitLinkToSip" type="tns:transmitLinkToSip"/>
+
+  <xs:element name="transmitLinkToSipResponse" type="tns:transmitLinkToSipResponse"/>
+
+  <xs:element name="transmitSip" type="tns:transmitSip"/>
+
+  <xs:element name="transmitSipResponse" type="tns:transmitSipResponse"/>
+
+  <xs:complexType name="transmitSip">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseEndpointAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="sip">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ns1:metsType">
+              <xs:sequence/>
+              <xs:anyAttribute namespace="##other" processContents="skip"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transmitSipResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:transmissionResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transmissionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseId" type="tns:response"/>
+      <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transmitLinkToSip">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="responseEndpointAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="sipAddress" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transmitLinkToSipResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:transmissionResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="response">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCCESS"/>
+      <xs:enumeration value="IO_ERROR"/>
+      <xs:enumeration value="GENERIC_ERROR"/>
+    </xs:restriction>
+   </xs:simpleType>
+  </xs:schema>
+ </wsdl:types>
+ 
+ <wsdl:message name="transmitSip">
+    <wsdl:part element="tns:transmitSip" name="parameters">
+    </wsdl:part>
+ </wsdl:message>
+  
+ <wsdl:message name="transmitLinkToSipResponse">
+    <wsdl:part element="tns:transmitLinkToSipResponse" name="parameters">
+    </wsdl:part>
+ </wsdl:message>
+  
+ <wsdl:message name="transmitSipResponse">
+    <wsdl:part element="tns:transmitSipResponse" name="parameters">
+    </wsdl:part>
+ </wsdl:message>
+  
+ <wsdl:message name="transmitLinkToSip">
+    <wsdl:part element="tns:transmitLinkToSip" name="parameters">
+    </wsdl:part>
+ </wsdl:message>
+  
+ <wsdl:portType name="ServiceIngestTransmit">
+    <wsdl:operation name="transmitSip">
+      <wsdl:input message="tns:transmitSip" name="transmitSip">
+      </wsdl:input>
+      <wsdl:output message="tns:transmitSipResponse" name="transmitSipResponse">
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transmitLinkToSip">
+      <wsdl:input message="tns:transmitLinkToSip" name="transmitLinkToSip">
+      </wsdl:input>
+      <wsdl:output message="tns:transmitLinkToSipResponse" name="transmitLinkToSipResponse">
+      </wsdl:output>
+    </wsdl:operation>
+ </wsdl:portType>
+ 
+ <wsdl:binding name="ServiceIngestTransmitImplServiceSoapBinding" type="tns:ServiceIngestTransmit">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    
+    <wsdl:operation name="transmitSip">
+      <soap:operation soapAction="urn:TransmitSip" style="document"/>
+      <wsdl:input name="transmitSip">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="transmitSipResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="transmitLinkToSip">
+      <soap:operation soapAction="urn:TransmitLinkToSip" style="document"/>
+      <wsdl:input name="transmitLinkToSip">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="transmitLinkToSipResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+ </wsdl:binding>
+ 
+ <wsdl:service name="ServiceIngestTransmitImplService">
+    <wsdl:port binding="tns:ServiceIngestTransmitImplServiceSoapBinding" name="ServiceIngestTransmitImplPort">
+      <soap:address location="http://localhost:8080/sinekarta-ingestionservice-service/services/ServiceIngestTransmitImplPort"/>
+    </wsdl:port>
+ </wsdl:service>
+
+</wsdl:definitions>
+```

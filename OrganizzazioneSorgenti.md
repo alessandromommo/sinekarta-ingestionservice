@@ -1,0 +1,11 @@
+# Organizzazione sorgenti #
+
+Attualmente i sorgenti sono gestiti con [Maven](http://maven.apache.org/) ed organizzati secondo la struttura standard di un progetto multimodulo:
+
+  * `sinekarta-ingestionservice` è la radice dell'albero delle directory dei sorgenti. Deve essere la prima directory per cui fare il `checkout` e tutte le altre devono essere contenute al suo interno;
+
+  * `sinekarta-ingestionservice-client` è il modulo contenente il codice necessario per la costruzione e la sottomissione di un pacchetto di versamento al web service del sistema di conservazione;
+
+  * `sinekarta-ingestionservice-commons` contiene il codice comune ai vari moduli e fornisce gli strumenti necessari alla costruzione e alla manipolazione dei pacchetti di versamento. Il package `org.sinekarta.ingestionservice.mets` contiene le classi che modellano un pacchetto di versamento e sono realizzate a partire dallo XML Schema di un documento [METS versione 1.10](http://www.loc.gov/standards/mets/mets.xsd) mediante l'ausilio del plugin di Maven `maven-jaxb2-plugin`. Quest'ultimo è servito anche per la generazione delle classi, contenute nel package `org.sinekarta.ingestionservice.mods`, il cui scopo è quello di modellare un documento [MODS versione 3.5](http://www.loc.gov/standards/mods/). Lo scopo ultimo di questo modulo è quello di realizzare una libreria, e quindi un jar, facilmente utilizzabile in progetti di terze parti;
+
+  * `sinekarta-ingestionservice-service` contiene un'implementazione basilare del web service del sistema di conservazione, dando quindi la possibilità di testare localmente il codice del modulo client.

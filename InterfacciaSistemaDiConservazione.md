@@ -1,0 +1,14 @@
+# Web service sistema di conservazione #
+
+L'accesso al sistema di conservazione avviene attraverso il servizio **ServiceIngestTransmit**. Da questo servizio è possibile invocare due operazioni differenti mediante le quali trasmettere il pacchetto di versamento. In particolare:
+
+  * L'operazione _transmitSip_ consente di trasmettere il pacchetto di versamento direttamente come parametro;
+  * L'operazione _transmitLinkToSip_ consente di inviare al sistema di versamento un indirizzo dal quale prelevare il pacchetto di versamento.
+
+Entrambe le operazioni hanno come primo parametro l'indirizzo del web service da contattare per la trasmissione asincrona del resoconto dell'operazione di versamento (vedi InterfacciaProduttore).
+
+Il messaggio di ritorno delle operazioni ha il seguente formato:
+  * _transmissionId_ : identificativo univoco assegnato all'operazione di versamento;
+  * _transmissionDate_ : data del tentativo di versamento;
+  * _transmissionStatus_ : esito della prima fase di versamento
+  * _transmissionMessage_ : una stringa intelligibile per il _Produttore_ (vedi AttoriDelSistema).
